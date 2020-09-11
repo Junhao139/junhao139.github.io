@@ -1,5 +1,4 @@
 
-
 function topBar() {
     var innerWidth = window.innerWidth;
     document.getElementById("navBar").style.width = (innerWidth - 30) + "px";
