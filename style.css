@@ -1,124 +1,107 @@
 * {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
-#wallpaper {
-    position: absolute;
-    top: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://blog.junhaoliu.repl.co/files/wallpaper.jpg");
-    background-size: auto 100%;
-    background-position: center;
-    transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier(.9, .1, .1, .9);
-    background-attachment: scroll;
+body {
+	font-family: 'Noto Sans SC Black';
 }
 
-#wallpaper #paragraph {
-    font-family: "Ma Shan Zheng";
-    color: #fff;
-    text-shadow: 0px 2px 5px -2.5px #000;
-    font-size: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+::-ms-thumb {
+	width: 5px;
 }
 
-#wallpaper #wp_menu_bd {
-    bottom: 0;
-    width: 100%;
-    position: absolute;
+::-ms-track {
+	width: 3px;
 }
 
-#wallpaper #wp_menu_bd #wp_menu {
-    background: #fff;
-    border-radius: 7.5px;
-    border: 2px solid #999;
-    margin: 20px 20px 30px 20px;
-    bottom: 0;
-    padding: 15px;
+::-webkit-scrollbar {
+	width: 10px;
+	padding: 2px;
+	background: rgba(255, 255, 255, 0.8);
 }
 
-#wallpaper #wp_menu_bd #svg_down {
-    clear: both;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+::-webkit-scrollbar-thumb {
+	background: #bbb;
 }
 
-#logo_name {
-    font-family: "Noto Sans SC Regular";
+body #navBar {
     position: fixed;
     display: block;
-    padding: 10px 15px;
-    right: 10px;
-    top: 0px;
-    border-radius: 0 0 7.5px 7.5px;
-    background: #fff;
-    z-index: 100;
-    box-shadow: 0px 5px 15px -5px rgba(0, 0, 0, 0.5);
+    margin: 7.5px 0 0 7.5px;
+	background-color: #fff;
+	z-index: 200;
+	transition-duration: 0.2s;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+	font-family: 'Noto Sans SC Bold';
+}
+
+body #navBar #navBar_left {
+	float: left;
+}
+
+body #navBar #navBar_left img {
+	width: 20px;
+	margin-left: 30px;
+}
+
+body #navBar #navBar_left h2 {
+	transition-duration: 0.2s;
+	margin: 10px 20px;
+}
+
+body #navBar #navBar_right {
+	float: right;
+}
+
+body #navBar #navBar_right h2#Time {
+	font-size: 15px;
+	margin-top: 16px;
+	margin-right: 20px;
+	font-family: 'Noto Sans SC Light';
+	color: #788;
+}
+
+body #main {
+	height: 100%;
+	background: url("https://blog.junhaoliu.repl.co/files/wallpaper.jpg");
+	background-position: center;
+	background-size: 100% auto;
+	background-attachment: fixed;
+	width: 100%;
+	transition-duration: 0.2s;
+	text-align: center;
+}
+
+body #main h1 {
+	font-family: "Ma Shan Zheng";
+	color: #fff;
+	font-size: 50px;
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+body #main p {
+	font-family: "Noto Sans SC Light";
+	display: block;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 0;
+	color: #222;
 }
 
 
-
-#menu {
-    transition-duration: 0.4s;
-    transition-timing-function: cubic-bezier(.58, -0.28, .38, 1.26);
-    position: fixed;
-    left: -250px;
-    top: 225px;
-    z-index: 100;
-    /*border: 1px solid #107fa8;*/
-    border-radius: 0px 15px 15px 0px;
-    background-color: #fff;
-    box-shadow: 0px 5px 15px -7.5px rgba(85, 190, 220, 1);
-    padding: 5px 20px 5px 20px;
+body #content {
+	width: 80%;
+	display: block;
+	margin: 40px auto;
+	min-height: 500px;
 }
 
-#menu .menu_option {
-    color: #bbb;
-    font-size: initial;
-    font-family: 'Noto Sans SC Light';
-    padding: 5px 15px;
-    border-radius: 100px;
-    margin: 7.5px;
-}
-
-#space4Cnt {
-    min-height: 500px;
-}
-
-#cnt {
-}
-
-#cnt #main {
-    font-family: "Noto Sans SC Regular";
-    border-radius: 20px 0 0 0;
-    margin: 20px 0px 0px 100px;
-    border-top: 1px solid #8ab3ff;
-    border-left: 1px solid #8ab3ff;
-    padding: 25px;
-}
-
-#cnt #main iframe h1 {font-family: "Noto Sans SC Medium";}
-#cnt #main iframe p {font-family: "Noto Sans SC Light";}
-
-#cnt #main iframe {
-    position: relative;
-    border: none;
-    height: 1000px;
-    width: 100%;
-}
-
-#footer {
-    text-align: center;
-    color: #777;
-    padding: 30px;
-    background-color: #ddd;
+body #content .title {
+	font-family: "Noto Sans SC Medium";
 }
