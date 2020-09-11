@@ -16,7 +16,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 15px;
 	padding: 2px;
 	background: rgba(255, 255, 255, 0.8);
 }
@@ -26,9 +26,9 @@ body {
 }
 
 body #navBar {
-    position: fixed;
-    display: block;
-    margin: 7.5px 0 0 7.5px;
+	position: fixed;
+	top: 0;
+	width: 100%;
 	background-color: #fff;
 	z-index: 200;
 	transition-duration: 0.2s;
