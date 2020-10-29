@@ -14,7 +14,7 @@
     background-position: center;
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(.9, .1, .1, .9);
-    background-attachment: scroll;
+    background-attachment: fixed;
 }
 
 #wallpaper #paragraph {
