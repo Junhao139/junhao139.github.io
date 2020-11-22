@@ -64,7 +64,7 @@ body #navBar #navBar_right h2#Time {
 
 body #main {
 	height: 100%;
-	background: url("www.zminutes.com/files/wallpaper.jpg");
+	background: url("https://raw.githubusercontent.com/Junhao139/junhao139.github.io/master/files/wallpaper.jpg");
 	background-position: center;
 	background-size: 100% auto;
 	background-attachment: fixed;
