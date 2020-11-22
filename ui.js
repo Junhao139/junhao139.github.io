@@ -15,7 +15,7 @@ function topBar() {
 var innerHeight = window.innerHeight;
 var nowTime = new Date;
 function onload() {
-	document.getElementById("Time").innerHTML = nowTime.getFullYear() + " 年 " + (nowTime.getMonth() + 1) + " 月 " + nowTime.getDate() + " 日 " + nowTime.getHours() + " : " + nowTime.getMinutes();
+	document.getElementById("Time").innerHTML = nowTime.getFullYear() + " 年 " + (nowTime.getMonth() + 1) + " 月 " + nowTime.getDate() + " 日 " + nowTime.getHours() + " : " + (nowTime.getMinutes() < 10 ? '0' : "") + nowTime.getMinites();
 	document.getElementById("main").style.height = innerHeight + "px";
 	if ((window.innerWidth / window.innerHeight) < 1.5) {
 		document.getElementById("main").style.backgroundSize = "auto 100%";
