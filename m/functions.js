@@ -25,7 +25,7 @@ function showTime() {
     var time = new Date;
     var hours = time.getHours();
     var minutes = time.getMinutes();
-    document.getElementById("logo_name").innerHTML = "<b>Zminuts.com</b> - " + hours + " : " + (minutes < 10 ? "0" + minutes : minutes);
+    document.getElementById("logo_name").innerHTML = "<b>zMinutes.com</b> - " + hours + " : " + (minutes < 10 ? "0" + minutes : minutes);
 }
 
 function initUserPreference() {
