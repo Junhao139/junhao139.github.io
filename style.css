@@ -1,3 +1,22 @@
 body {
     margin: 20px;
+    background: #1f1f1f;
+}
+
+body a {
+	text-decoration: none;
+	border-bottom: 1px solid rgb(255, 187, 0);
+	color: rgb(255, 187, 0);
+}
+
+div#welcome {
+    padding: 4px 20px;
+    color: #fff;
+	background: rgba(60, 60, 60, 1);
+	border-radius: 8px;
+}
+
+div#content {
+	color: #ffffff;
+	letter-spacing: 1px;
 }

@@ -9,12 +9,14 @@ h1 {
     color: #cfcfcf;
     margin-bottom: 20px;
     padding-bottom: 8px;
+    letter-spacing: 1px;
     border-bottom: 1px solid #6f6f6f;
 }
 
 h3 {
     border-left: 6px solid  rgb(255, 187, 0);
     padding-left: 6px;
+    letter-spacing: 1px;
     margin-top: 20px;
     color: #fff;
 }
@@ -41,4 +43,5 @@ div#footer a {
     text-decoration: none;
     color: rgb(255, 187, 0);
     border-bottom: 1px solid rgb(255, 187, 0);
+    text-align: center;
 }
