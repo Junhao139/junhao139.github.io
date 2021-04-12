@@ -4,5 +4,7 @@ function customPageMargin() {
 
     if ((width / height) < 1.0) {
         document.getElementsByTagName("body")[0].style.margin = "120px 10% 20px 10%";
+    } else {
+        document.getElementsByTagName("body")[0].style.margin = "120px 20% 20px 20%";
     }
 }
