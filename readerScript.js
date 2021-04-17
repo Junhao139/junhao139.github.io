@@ -13,7 +13,7 @@ function createIframe(url) {
 /* GET CONVERTED HTML STRING */
 function getMarkdownTexts(iframeElement) {
     var elmnt = iframeElement.contentDocument || iframeElement.contentWindow.document;
-    var bodyElement = elmnt.getElementsByTagName("body")[0].innerHTML;
+    var bodyElement = elmnt.getElementsByTagName("pre")[0].innerHTML;
 
     var MarkDownConverter = new showdown.Converter();
     var markdownOutput = MarkDownConverter.makeHtml(bodyElement);
