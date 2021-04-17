@@ -1,0 +1,47 @@
+body {
+    margin: 120px 20% 20px 20%;
+    background: #1f1f1f;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+    color: #cfcfcf;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #6f6f6f;
+}
+
+h3 {
+    border-left: 6px solid  rgb(255, 187, 0);
+    padding-left: 6px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+p {
+    letter-spacing: 1px;
+    line-height: 2.4em;
+    font-weight: lighter;
+    color: #ffffff;
+    background: #0000;
+}
+
+p :hover {
+    background: #000f;
+}
+
+div#footer {
+    background: #000;
+    padding: 20px;
+    color: #fff;
+}
+
+div#footer a {
+    text-decoration: none;
+    color: rgb(255, 187, 0);
+    border-bottom: 1px solid rgb(255, 187, 0);
+    text-align: center;
+}
