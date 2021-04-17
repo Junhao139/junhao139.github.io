@@ -33,6 +33,13 @@ p :hover {
     background: #000f;
 }
 
+code {
+    padding: 6px;
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    background: #3a3a3a;
+    color: #ffffff;
+}
+
 div#footer {
     background: #000;
     padding: 20px;
