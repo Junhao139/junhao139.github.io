@@ -29,7 +29,8 @@ function convertSource() {
 
     /* CONVERT TO HTML */
     var outputIframe = createIframe("https://blog.zminutes.com/texts/" + directingFile + ".md");
-    //document.getElementsByTagName("body")[0].appendChild(outputIframe);
+    outputIframe.style.display = "none";
+    document.getElementsByTagName("body")[0].appendChild(outputIframe);
 
     outputIframe.onload = function () {
         var markdownOutput = getMarkdownTexts(outputIframe);
