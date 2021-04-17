@@ -16,7 +16,7 @@ function getMarkdownTexts(iframeElement) {
     var bodyElement = elmnt.getElementsByTagName("body")[0].innerHTML;
 
     var MarkDownConverter = new showdown.Converter();
-    var markdownOutput = MarkDownConverter.makeHTML(bodyElement);
+    var markdownOutput = MarkDownConverter.makeHtml(bodyElement);
     return markdownOutput;
 }
 
