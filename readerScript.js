@@ -2,15 +2,21 @@ window.onload = function() {
     convertSource();
 }
 
-/* GET CONVERTED HTML STRING */
-function getMarkdownTexts(url) {
+/* CREATE IFRAME */
+function createIframe(url) {
     var iframe = document.createElement("iframe");
     iframe.setAttribute("src", url);
     iframe.setAttribute("id", "GET_CNT_IFRAME_ELEM");
-    var elmnt = iframe.contentWindow.document.getElementsByTagName("body")[0].innerHTML;
+    return iframe;
+}
+
+/* GET CONVERTED HTML STRING */
+function getMarkdownTexts(iframeElement) {
+    var elmnt = iframeElement.contentDocument || iframeElement.contentWindow.document;
+    var bodyElement = elmnt.getElementsByTagName("body")[0].innerHTML;
 
     var MarkDownConverter = new showdown.Converter();
-    markdownOutput = MarkDownConverter.makeHTML(elmnt);
+    var markdownOutput = MarkDownConverter.makeHTML(bodyElement);
     return markdownOutput;
 }
 
@@ -22,9 +28,14 @@ function convertSource() {
     var directingFile = urlParameters.get("cnt");
 
     /* CONVERT TO HTML */
-    var markdownOutput = getMarkdownTexts("https://blog.zminutes.com/texts/" + directingFile + ".md");
+    var outputIframe = createIframe("https://blog.zminutes.com/texts/" + directingFile + ".md");
+    document.getElementsByTagName("body")[0].appendChild(outputIframe);
 
-    /* OUTPUT */
-    var parentElem = document.getElementById("pageContent");
-    parentElem.innerHTML = markdownOutput;
+    outputIframe.onload = function () {
+        var markdownOutput = getMarkdownTexts(outputIframe);
+
+        /* OUTPUT */
+        var parentElem = document.getElementById("pageContent");
+        parentElem.innerHTML = markdownOutput;
+    }
 }
