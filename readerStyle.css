@@ -41,6 +41,15 @@ code {
     border-radius: 4px;
 }
 
+pre code {
+    padding: 10px;
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    background: #3a3a3a;
+    color: #ffffff;
+    border-radius: 4px;
+    display: block;
+}
+
 a {
     text-decoration: none;
     color: rgb(255, 187, 0);
@@ -52,7 +61,7 @@ blockquote {
     border-left: 4px solid #6f6f6f;
     margin-block: 0px;
     margin-inline: 0px;
-    padding: 0.4em 0em 0.4em 1.4em;
+    padding: 0.4em 0.4em 0.4em 1.4em;
     background: #2f2f2f;
 }
 
