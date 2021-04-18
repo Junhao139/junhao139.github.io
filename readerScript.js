@@ -5,7 +5,7 @@ window.onload = function() {
 
 /* GET CONVERTED HTML STRING */
 function getMarkdownTexts(originalString) {
-    var MarkDownConverter = new showdown.Converter();
+    var MarkDownConverter = new showdown.Converter({ strikethrough : true });
     var markdownOutput = MarkDownConverter.makeHtml(originalString);
     return markdownOutput;
 }
