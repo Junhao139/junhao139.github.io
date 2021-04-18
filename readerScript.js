@@ -20,9 +20,10 @@ function convertSource() {
     /* CONVERT TO HTML */
     var directingURL_local = "https://blog.zminutes.com/texts/" + directingFile + ".md";
     var directingURL_gitRaw = "https://raw.githubusercontent.com/Junhao139/junhao139.github.io/master/texts/" + directingFile + ".md";
-    
+    var usedSource = directingURL_gitRaw;
+
     $.get(
-        directingURL_local,
+        usedSource,
         function (callback, status) {
             document.getElementById("pageContent").innerHTML = getMarkdownTexts(callback);
         }
