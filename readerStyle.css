@@ -3,6 +3,33 @@ body {
     background: #1f1f1f;
 }
 
+div#wantToChangeSource {
+    position: fixed;
+    max-width: 100%;
+    bottom: 0;
+    border-top: 2px solid rgb(255, 94, 94);
+    border-radius: 8px 8px 0 0;
+    background: rgb(46, 13, 13);
+    padding: 12px;
+    margin: 0px 10px;
+    display: none;
+}
+
+div#wantToChangeSource button {
+    display: block;
+    padding: 8px 10px;
+    margin: 2px 0px;
+    font-weight: bold;
+    background: rgb(187, 141, 141);
+    color: #000;
+    border: none;
+    border-radius: 6px;
+}
+
+div#wantToChangeSource button:hover {
+    background: rgb(255, 146, 146);
+}
+
 div#pageContent {
     margin: 120px 20% 20px 20%;
 }
