@@ -1,6 +1,9 @@
 body {
-    margin: 120px 20% 20px 20%;
     background: #1f1f1f;
+}
+
+div#pageContent {
+    margin: 120px 20% 20px 20%;
 }
 
 h1 {
