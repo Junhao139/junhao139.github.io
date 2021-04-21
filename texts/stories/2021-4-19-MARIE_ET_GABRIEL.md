@@ -56,7 +56,7 @@ Bon, voilà les traductions:
 >
 > Gabriel is scared. - I don't undestand your screams. Could you tell me, what happened?
 >
-> \- No, no, don't... I has no reason! Shut up...
+> \- No, no, don't... It has no reason! Shut up...
 >
 > \- OK, sure. I'll wait you.
 >
