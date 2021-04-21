@@ -83,7 +83,7 @@ function getReadingDuration(strLength) {
 	if (duration < 1) {
 		return "&lt 1";
 	} else {
-		return (Math.trunc(duration)).toString();
+		return (Math.round(duration)).toString();
 	}
 }
 
