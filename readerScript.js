@@ -44,7 +44,7 @@ function getMarkdownContentWithSource(sourceType, fileName) {
         function (callback, status) {
             if (!contentIsLoaded) {
                 document.getElementById("pageContent").innerHTML = getMarkdownTexts(callback);
-                document.getElementById("textInfos").innerText = "阅读时长：" + (callback.length / 600) + " 分钟"; 
+                document.getElementById("textInfos").innerText = "阅读时长：" + getReadingDuration(callback.length) + " 分钟"; 
                 contentIsLoaded = true;
             }
         }
@@ -74,6 +74,17 @@ function askForChangingSource(option) {
         elem.style.display = "none";
         break;
     }
+}
+
+/* CALCULATE READING LENGTH THROUGH STRING LENGTH */
+function getReadingDuration(strLength) {
+	var duration = strLength / 500;
+
+	if (duration < 1) {
+		return "&lt 1";
+	} else {
+		return (Math.trunc(duration)).toString();
+	}
 }
 
 /* CUSTOM PAGE MARGIN TO FIX PAGE */
