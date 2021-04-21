@@ -31,7 +31,7 @@ div#wantToChangeSource button:hover {
 }
 
 div#textInfos {
-    background: none;
+    background: #000;
     color: #ffffff;
     letter-spacing: 1px;
     font-weight: lighter;
