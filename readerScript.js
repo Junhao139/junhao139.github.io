@@ -44,6 +44,7 @@ function getMarkdownContentWithSource(sourceType, fileName) {
         function (callback, status) {
             if (!contentIsLoaded) {
                 document.getElementById("pageContent").innerHTML = getMarkdownTexts(callback);
+                document.getElementById("textInfos").innerText = "阅读时长：" + (callback.length / 600) + " 分钟"; 
                 contentIsLoaded = true;
             }
         }

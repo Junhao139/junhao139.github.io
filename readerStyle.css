@@ -30,6 +30,15 @@ div#wantToChangeSource button:hover {
     background: rgb(255, 146, 146);
 }
 
+div#textInfos {
+    background: none;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    padding: 10px;
+    text-align: center;
+}
+
 div#pageContent {
     margin: 120px 20% 20px 20%;
 }
