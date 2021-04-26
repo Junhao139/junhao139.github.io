@@ -43,6 +43,10 @@ div#pageContent {
     margin: 120px 20% 20px 20%;
 }
 
+div#pageContent img#loadingAnimation {
+    border-radius: 8px;
+}
+
 h1 {
     font-weight: bold;
     text-align: center;
