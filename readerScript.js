@@ -102,3 +102,10 @@ function customPageMargin() {
         container.style.margin = "120px 20% 20px 20%";
     }
 }
+
+/* GET WINDOW MAXIMUM SUPPORTED SIZE */
+function getWindowMaximumPixels() {
+        width: window.screen.availWidth - (window.outerWidth - window.innerWidth),
+        height: window.screen.availHeight - (window.outerHeight - window.innerHeight)
+    };
+}
