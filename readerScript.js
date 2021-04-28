@@ -105,6 +105,7 @@ function customPageMargin() {
 
 /* GET WINDOW MAXIMUM SUPPORTED SIZE */
 function getWindowMaximumPixels() {
+    return {
         width: window.screen.availWidth - (window.outerWidth - window.innerWidth),
         height: window.screen.availHeight - (window.outerHeight - window.innerHeight)
     };
