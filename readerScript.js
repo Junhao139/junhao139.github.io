@@ -16,7 +16,7 @@ window.onload = function() {
 
 /* GET CONVERTED HTML STRING */
 function getMarkdownTexts(originalString) {
-    var MarkDownConverter = new showdown.Converter({ strikethrough : true });
+    var MarkDownConverter = new showdown.Converter({ strikethrough : true, tables : true });
     var markdownOutput = MarkDownConverter.makeHtml(originalString);
     return markdownOutput;
 }
