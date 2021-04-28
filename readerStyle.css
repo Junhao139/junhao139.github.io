@@ -122,6 +122,25 @@ li {
     margin: 1em;
 }
 
+table {
+    border-spacing: 0px;
+    color: #fff;
+}
+
+thead {
+    background: #ffffff2a;
+}
+
+td, th {
+    border: 1px solid #4f4f4f;
+    padding: 4px 6px;
+}
+
+tr {
+    border: 1px solid #4f4f4f;
+    padding: 4px;
+}
+
 div#footer {
     background: #000;
     padding: 20px;
