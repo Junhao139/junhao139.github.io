@@ -12,6 +12,12 @@ window.onload = function() {
             clearInterval(contentLoadIntervalID);
         }
     }, 4000);
+
+    $.get({
+        statusCode: {
+            404: function() { alert("Page Not Found."); }
+        }
+    });
 }
 
 /* GET CONVERTED HTML STRING */
