@@ -15,7 +15,7 @@ window.onload = function() {
 
     $.get({
         statusCode: {
-            404: function() { alert("Page Not Found."); }
+            404: function() { console.log("Page Not Found."); }
         }
     });
 }
