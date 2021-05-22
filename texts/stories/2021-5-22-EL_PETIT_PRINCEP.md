@@ -26,7 +26,7 @@ Però alguna cosa dins meu es va moure al sentir la rialla d'aquell nen
 
 但我内心的某些东西，在听到那个男孩的笑声时产生了改变
 
-
+----
 
 I allà vaig aprendre
 
@@ -44,7 +44,7 @@ Només cal voler-lo sentir
 
 只需要认真倾听
 
-
+----
 
 I allà vaig aprendre
 
@@ -62,7 +62,7 @@ Que aprendre a estimar i ser feliç
 
 即我所要的
 
-
+----
 
 No sé si va ser real
 
@@ -80,7 +80,7 @@ Quan es deixàven domesticar
 
 在挣脱束缚的时候
 
-
+----
 
 No responia a les meves preguntes
 
@@ -98,7 +98,7 @@ Que són en realitat les importants
 
 那些都是重要的事情
 
-
+----
 
 I allà vaig aprendre
 
@@ -116,7 +116,7 @@ Només cal voler-lo sentir
 
 只需要认真倾听
 
-
+---
 
 I allà vaig aprendre
 
@@ -130,7 +130,7 @@ I això ho va fer ell
 
 而这就是他所做的
 
-
+---
 
 I allà vaig aprendre a recordar
 
@@ -148,7 +148,7 @@ Que sovint ens n'oblidem
 
 总被我们遗忘
 
-
+----
 
 I allà vaig aprendre
 
@@ -166,7 +166,7 @@ Que aprendre a estimar i ser feliç
 
 即我所要的
 
-
+----
 
 I ell va ensenyar-m'ho com ningú
 
