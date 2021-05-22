@@ -1,22 +1,69 @@
 body {
-    margin: 20px;
     background: #1f1f1f;
+	margin: 0;
 }
 
 body a {
 	text-decoration: none;
 	border-bottom: 1px solid rgb(255, 187, 0);
 	color: rgb(255, 187, 0);
+	cursor: pointer;
 }
 
 div#welcome {
-    padding: 4px 20px;
+    padding: 28px 28px;
     color: #fff;
 	background: rgba(60, 60, 60, 1);
-	border-radius: 8px;
+	border-radius: 0px 0px 10px 10px;
+	box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+div#welcome h2 {
+	margin-block: 0;
 }
 
 div#content {
 	color: #ffffff;
 	letter-spacing: 1px;
+	margin: 24px;
+}
+
+div#content h4 {
+	margin: 10px 4px;
+}
+
+div#content ul {
+	list-style-type: none;
+	padding: 4px 14px;
+	border-radius: 14px;
+	background: #2e2e2e;
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+div#content ul a {
+	perspective: 400px;
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+div#content ul a li {
+	overflow: hidden;
+	display: block;
+	margin: 10px 0px;
+	padding: 16px 16px 16px 16px;
+	border-radius: 10px;
+	display: block;
+	background: #0f0f0f;
+	transition-duration: 0.1s;
+	transition-timing-function: cubic-bezier(0, .60, .40, 1);
+}
+
+div#content ul a li:hover {
+	background: #000000;
+	padding: 16px 16px 16px 26px;
+}
+
+div#content ul a li:active {
+	transform: rotateY(10deg);
 }
