@@ -143,6 +143,10 @@ tr {
     padding: 4px;
 }
 
+hr {
+    border-color: #2f2f2f;
+}
+
 div#footer {
     background: #000;
     padding: 20px;
