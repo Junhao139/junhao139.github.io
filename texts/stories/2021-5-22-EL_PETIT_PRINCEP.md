@@ -4,6 +4,8 @@
 
 YouTube 歌曲链接：[Vaig Aprendre](https://youtu.be/J0fyNiYIgEc)
 
+<audio controls="controls"><source type="audio/mp3" src="https://blog.zminutes.com/resources/Vaig Aprendre.mp3"></source>   <source type="audio/ogg" src="filename.ogg"></source><p>您的浏览器不支持音频播放。</p> </audio>
+
 ### 中文自译版（双语）
 
 I així és com ho recordo, va ser un nen que estava perdut al desert
