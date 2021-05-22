@@ -38,7 +38,7 @@ Que tot depèn de mi
 
 I que tots tenim un petit príncep a dins
 
-每个人的心中都住着一个小小的王子
+且每个人的心中都住着一个小小的王子
 
 Només cal voler-lo sentir
 
@@ -56,11 +56,11 @@ Que l'essencial és invisible als ulls
 
 Que aprendre a estimar i ser feliç
 
-懂得如何热爱并快乐
+懂得去热爱并快乐
 
 És el que vull
 
-即我所要的
+才是我所要的
 
 ----
 
@@ -74,7 +74,7 @@ Quan em parlava de roses i de baobabs
 
 O de guineus que eren amics increíbles
 
-亦或是狐狸间不可思议的友情
+亦或是有着不可思议的友情的狐狸
 
 Quan es deixàven domesticar
 
@@ -94,9 +94,9 @@ Em vaig anar fixant amb les coses petites
 
 我开始关注生活的一些点点滴滴
 
-Que són en realitat les importants
+Que són en realitat les més importants
 
-那些都是重要的事情
+事实上它们都是最重要的事情
 
 ----
 
@@ -110,7 +110,7 @@ Que tot depèn de mi
 
 I que tots tenim un petit príncep a dins
 
-每个人的心中都住着一个小小的王子
+且每个人的心中都住着一个小小的王子
 
 Només cal voler-lo sentir
 
@@ -160,11 +160,11 @@ Que l'essencial és invisible als ulls
 
 Que aprendre a estimar i ser feliç
 
-懂得如何热爱并快乐
+懂得去热爱并快乐
 
 És el que vull
 
-即我所要的
+才是我所要的
 
 ----
 
