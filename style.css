@@ -64,6 +64,7 @@ div#content ul a li {
 	background: #0f0f0f;
 	transition-duration: 0.1s;
 	transition-timing-function: cubic-bezier(0, .60, .40, 1);
+	background: url("https://blog.zminutes.com/resources/NORMAL_BG.png");
 }
 
 div#content ul a li:hover {
