@@ -99,7 +99,7 @@ function customPageMargin() {
     var width = window.innerWidth;
 
     var container = document.getElementById("pageContent");
-    const screenMaxWidth = getWindowMaximumPixels().width;
+    const screenMaxWidth = window.screen.availWidth;
 
     if ((width - 40) <= (screenMaxWidth * 60 / 100)) {
         container.style.margin = "0px 20px";
