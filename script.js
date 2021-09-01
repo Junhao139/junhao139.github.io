@@ -1,5 +1,6 @@
 window.onload = function() {
     repartAllHrefs();
+    setTimeout(logo_Animation, 100);
 };
 
 function repartAllHrefs() {
@@ -12,4 +13,13 @@ function repartAllHrefs() {
             ++sums;
         }
     }
+}
+
+function logo_Animation() {
+    var elem_container = document.getElementById("welcome_logo");
+    var elem_img = document.getElementById("welcome_logo_img");
+
+    elem_container.style.marginTop = "0px";
+    elem_container.style.marginBottom = "10px";
+    elem_img.style.width = "64px";
 }
