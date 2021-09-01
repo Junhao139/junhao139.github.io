@@ -3,7 +3,7 @@ var contentIsLoaded = false;
 
 window.onload = function() {
     convertSource("local");
-    setInterval(function() {customPageMargin();}, 50);
+    setInterval(customPageMargin, 50);
     var contentLoadIntervalID = setInterval(function() {
         if (!contentIsLoaded) {
             askForChangingSource(true);
@@ -50,7 +50,7 @@ function getMarkdownContentWithSource(sourceType, fileName) {
         function (callback, status) {
             if (!contentIsLoaded) {
                 document.getElementById("pageContent").innerHTML = getMarkdownTexts(callback);
-                document.getElementById("textInfos").innerText = "阅读时长：" + getReadingDuration(callback.length) + " 分钟"; 
+                document.getElementById("textInfos").innerHTML = "阅读时长：" + getReadingDuration(callback.length) + " 分钟"; 
                 contentIsLoaded = true;
                 console.log("GET STATUS: " + status);
             }
@@ -97,16 +97,15 @@ function getReadingDuration(strLength) {
 /* CUSTOM PAGE MARGIN TO FIX PAGE */
 function customPageMargin() {
     var width = window.innerWidth;
-    var height = window.innerHeight;
 
     var container = document.getElementById("pageContent");
+    const screenMaxWidth = getWindowMaximumPixels().width;
 
-    if ((width / height) < 0.6) {
-        container.style.margin = "120px 10px 20px 10px";
-    } else if ((width / height) < 1.0) {
-        container.style.margin = "120px 10% 20px 10%";
+    if ((width - 40) <= (screenMaxWidth * 60 / 100)) {
+        container.style.margin = "0px 20px";
+        container.style.width = "initial";
     } else {
-        container.style.margin = "120px 20% 20px 20%";
+        container.style.width = (screenMaxWidth * 60 / 100) + "px";
     }
 }
 

@@ -13,15 +13,19 @@
 <body>
     <div id="wantToChangeSource">
         <h3>诶呀！</h3>
-        <p>我们发现您的网页于 4s 内并未加载完成！您可以选择下面几个选项来更换文件请求源。</p>
+        <p>我们发现该内容并未于 4s 内加载完成！您可以选择下面几个选项来更换文件请求源。</p>
         <button onclick="convertSource('local');">blog.zminutes.com 默认 github.io 源</button>
         <button onclick="convertSource('gitRaw');">raw.githubusercontent.com 源</button>
         <button onclick="convertSource('replit');">repl.co 源</button>
-        <button onclick="askForChangingSource(false);">我的网页已经加载完成，无需更换源</button>
+        <button onclick="askForChangingSource(false);">内容已经加载完成，无需更换源</button>
     </div>
+    
     <div id="textInfos"></div>
-    <div id="pageContent">
-        <img id="loadingAnimation" src="./resources/loadingAnim.gif" />
+
+    <div id="pageContentContainer">
+        <div id="pageContent">
+            <img id="loadingAnimation" src="./resources/loadingAnim.gif" />
+        </div>
     </div>
 
     <div id="footer">

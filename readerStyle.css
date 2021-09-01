@@ -39,11 +39,21 @@ div#textInfos {
     text-align: center;
 }
 
-div#pageContent {
-    margin: 120px 20% 20px 20%;
+div#pageContentContainer {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 80px;
 }
 
-div#pageContent img#loadingAnimation {
+div#pageContentContainer div#pageContent {
+    display: inline-block;
+    margin: 0;
+    /*width: 600px;*/
+    text-align: initial;
+}
+
+div#pageContentContainer div#pageContent img#loadingAnimation {
     border-radius: 8px;
     max-width: 100%;
     height: auto;
@@ -145,6 +155,10 @@ tr {
 
 hr {
     border-color: #7f7f7f;
+}
+
+img {
+    max-width: 100%;
 }
 
 div#footer {
