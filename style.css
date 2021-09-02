@@ -94,3 +94,16 @@ div#content ul a li:hover {
 div#content ul a li:active {
 	transform: rotateY(10deg);
 }
+
+div#footer {
+	margin: 0;
+	padding: 20px;
+	background: #000000;
+}
+
+div#footer span.centered {
+	display: block;
+	margin: 10px;
+	color: #FFFFFF;
+	text-align: center;
+}
