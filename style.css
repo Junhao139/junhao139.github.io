@@ -23,7 +23,7 @@ div#welcome div#welcome_logo {
 	margin-top: 200px;
 	margin-bottom: 100px;
 	text-align: center;
-	transition-timing-function: cubic-bezier(1,0,.6,1);
+	transition-timing-function: cubic-bezier(.6,0,.4,1);
 	transition-duration: 2s;
 }
 
@@ -31,7 +31,7 @@ div#welcome div#welcome_logo img#welcome_logo_img {
 	display: inline-block;
 	width: 256px;
 	height: auto;
-	transition-timing-function: cubic-bezier(0,.7,.3,1);
+	transition-timing-function: cubic-bezier(0,1,1,1);
 	transition-duration: 2s;
 }
 

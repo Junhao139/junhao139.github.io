@@ -1,6 +1,6 @@
 window.onload = function() {
     repartAllHrefs();
-    setTimeout(logo_Animation, 100);
+    setTimeout(logo_Animation, 1000);
 };
 
 function repartAllHrefs() {
