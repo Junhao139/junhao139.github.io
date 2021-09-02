@@ -2,11 +2,7 @@
 
 Maroon 5 的《Lost》蛮好听的，翻译一下。
 
-
-
 > 每句歌词有三行，一行原文，一行翻译，一行供翻唱。
-
-
 
 Got no connection, no faith or direction, no 12
 
