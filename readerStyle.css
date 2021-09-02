@@ -60,6 +60,12 @@ div#pageContentContainer div#pageContent img#loadingAnimation {
     height: auto;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
 h1 {
     font-weight: bold;
     text-align: center;
@@ -72,10 +78,8 @@ h1 {
 
 h3 {
     border-left: 6px solid rgb(255, 187, 0);
-    padding-left: 6px;
-    letter-spacing: 1px;
+    padding-left: 10px;
     margin-top: 20px;
-    color: #fff;
 }
 
 p {
