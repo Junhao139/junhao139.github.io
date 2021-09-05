@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    background: rgba(0, 0, 0, 1);
+    color: #FFFFFF;
+    font-family: 'Inter', 'OPPO Sans', sans-serif;
+}
+
+div#main_container {
+    margin: 20px;
+}
+
+div#main_container div#lyrics_container::-webkit-scrollbar {
+    display: none;
+}
+
+div#main_container div#lyrics_container {
+    background: rgba(40, 40, 40, 1);
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+    height: 600px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+div#main_container div#lyrics_container div.lyric_line {
+    margin-top: 40px;
+    display: block;
+}
+
+div#main_container div#lyrics_container div.lyric_line span.lyric_line_original {
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    text-align: center;
+}
+
+div#main_container div#lyrics_container div.lyric_line span.lyric_line_translated {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    font-size: 0.9em;
+    display: block;
+    text-align: center;
+}
+
+div#main_container div#control_center {
+    padding: 20px;
+    background: rgba(30, 30, 30, 1);
+    border-radius: 0px 0px 10px 10px;
+}
+
+div#main_container div#control_center div#control_music_state {
+    text-align: center;
+}
+
+div#main_container div#control_center div#control_music_state span.material-icons {
+    margin: 10px;
+    font-size: 48px;
+    transition-duration: 0.1s;
+}
+
+div#main_container div#control_center div#control_music_state span.material-icons#control_music_state_replay {
+    animation-duration: 0.4s;
+    animation-name: rotateWhole;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotateWhole {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

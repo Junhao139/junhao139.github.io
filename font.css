@@ -4,7 +4,6 @@
     font-weight: normal;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-R.ttf) format('ttf');
-    unicode-range: initial;
 }
 
 @font-face {
@@ -13,7 +12,6 @@
     font-weight: bold;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-B.ttf) format('ttf');
-    unicode-range: initial;
 }
 
 /* SPECIFIC FACES */
@@ -24,7 +22,6 @@
     font-weight: 300;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-L.ttf) format('ttf');
-    unicode-range: initial;
 }
 
 @font-face {
@@ -33,7 +30,6 @@
     font-weight: 400;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-R.ttf) format('ttf');
-    unicode-range: initial;
 }
 
 @font-face {
@@ -42,7 +38,6 @@
     font-weight: 500;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-M.ttf) format('ttf');
-    unicode-range: initial;
 }
 
 @font-face {
@@ -51,7 +46,6 @@
     font-weight: 700;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-B.ttf) format('ttf');
-    unicode-range: initial;
 }
 
 @font-face {
@@ -60,5 +54,4 @@
     font-weight: 900;
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/OPPOSans-H.ttf) format('ttf');
-    unicode-range: initial;
 }
