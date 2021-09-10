@@ -5,6 +5,12 @@ body {
     font-family: 'Inter', 'OPPO Sans', sans-serif;
 }
 
+audio#main_audio {
+    display: block;
+    position: fixed;
+    top: -100%;
+}
+
 div#main_container {
     margin: 20px;
 }
