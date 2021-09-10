@@ -1,5 +1,7 @@
 var global_SongInfo;
 
+init();
+
 function init() {
     var wholeURL = window.location.search;
     var urlParameters = new URLSearchParams(wholeURL);
