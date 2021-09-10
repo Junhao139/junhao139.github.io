@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="name">Name: </label>
+    <input id="name" />
+    <br><br>
+
+    <label for="artist">Artist: </label>
+    <input id="artist" />
+    <br><br>
+
+    <label for="orgLang">Original Language: </label>
+    <input id="orgLang" />
+    <br><br>
+
+    <label for="trnLang">Translated Language: </label>
+    <input id="trnLang" />
+    <br><br>
+
+    <label for="songPath">Song file URL: </label>
+    <input id="songPath" />
+    <br><br>
+
+    <textarea id="org"></textarea>
+    <button id="convert" onclick="convert();">Convert</button>
+    <div id="cvt"></div>
+
+    <script src="./lrc2json.js"></script>
+</body>
+</html>
