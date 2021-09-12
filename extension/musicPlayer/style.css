@@ -48,8 +48,8 @@ div#main_container div#main_lyrics_container div#lyrics_container {
 div#main_container div#lyrics_container div.lyric_line {
     padding: 60px 60px 0px 60px;
     display: block;
-    transition-timing-function: cubic-bezier(0,.2,0,1);
-    transition-duration: 0.2s;
+    /*transition-timing-function: cubic-bezier(0,.2,0,1);*/
+    /*transition-duration: 0.2s;*/
 }
 
 div#main_container div#lyrics_container div.lyric_line span.lyric_line_original {
