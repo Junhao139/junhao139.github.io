@@ -37,10 +37,10 @@ div#main_container div#main_lyrics_container div#lyrics_container::-webkit-scrol
 div#main_container div#main_lyrics_container div#lyrics_container {
     /*background: rgba(20, 20, 20, 0.6);*/
     border-radius: 10px 10px 0px 0px;
-    padding: 100px 0px 60px 0px;
+    padding: 100px 0px 120px 0px;
     height: 100%;
     box-sizing: border-box;
-    overflow-y: hidden;
+    overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }

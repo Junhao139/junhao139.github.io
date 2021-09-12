@@ -103,6 +103,7 @@ function lyrics_check() {
             var line_element = lyric_line_elements[i];
             line_element.style.filter = "blur(0px)";
             line_element.style.opacity = "1";
+            line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
         }
             
         clearInterval(interval);
@@ -118,6 +119,7 @@ function lyrics_check() {
             case 0:
                 line_element.style.filter = "blur(0px)";
                 line_element.style.opacity = "1";
+                line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 1)";
 
                 if (current_lyric_playing_index != i) {
                     $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[i].scrollY }, 350, "easeOutCubic");
@@ -128,22 +130,27 @@ function lyrics_check() {
             case 1:
                 line_element.style.filter = "blur(1px)";
                 line_element.style.opacity = "0.4";
+                line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             case 2:
                 line_element.style.filter = "blur(3px)";
                 line_element.style.opacity = "0.2";
+                line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             case 3:
                 line_element.style.filter = "blur(6px)";
                 line_element.style.opacity = "0.1";
+                line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             case 4:
                 line_element.style.filter = "blur(10px)";
                 line_element.style.opacity = "0.05";
+                line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             default:
                 line_element.style.filter = "blur(20px)";
                 line_element.style.opacity = "0";
+                line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
         }
     }
