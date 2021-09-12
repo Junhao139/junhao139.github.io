@@ -60,6 +60,17 @@ div#main_container div#lyrics_container div.lyric_line span.lyric_line_original 
     text-align: left;
 }
 
+div#main_container div#lyrics_container div.lyric_line div.lyric_line_original_container {
+    color: rgba(255, 255, 255, 1);
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+div#main_container div#lyrics_container div.lyric_line div.lyric_line_original_container span.lyric_word {
+    color: rgba(255, 255, 255, 1);
+}
+
 div#main_container div#lyrics_container div.lyric_line span.lyric_line_translated {
     color: rgba(255, 255, 255, 1);
     font-weight: 400;
