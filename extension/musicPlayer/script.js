@@ -8,23 +8,25 @@ function init() {
     var directingSongFile = urlParameters.get("songid");
     //var directingTextFile = urlParameters.get("cnt");
 
-    getSongInfo("https://blog.zminutes.com/resources/songs/" + directingSongFile + ".json", defineLyricFile);
+    getSongInfo("https://raw.githubusercontent.com/Junhao139/junhao139.github.io/master/resources/songs/" + directingSongFile + ".json", defineLyricFile);
 }
 
 function getSongInfo(url, callback_func) {
     $.get(
         url,
         function (callback, status) {
-            global_SongInfo = callback;
+            global_SongInfo = JSON.parse(callback) || callback;
             callback_func();
         }
     );
 }
 
+var lyrics_check_function;
 function defineLyricFile() {
     var lyrics_length = global_SongInfo.song_lyrics.length;
 
     if (global_SongInfo.version == 1 || global_SongInfo.version == undefined || global_SongInfo.version == null) {
+        lyrics_check_function = lyrics_check;
         for (var i = 0; i < lyrics_length; ++i) {
             var elem = createLyricLineElement(
                 global_SongInfo.song_lyrics[i].org,
@@ -34,6 +36,7 @@ function defineLyricFile() {
             document.getElementById("lyrics_container").appendChild(elem);
         }
     } else if (global_SongInfo.version == 2) {
+        lyrics_check_function = lyrics_check_2;
         for (var i = 0; i < lyrics_length; ++i) {
             var elem = createLyricLineElement_2(
                 global_SongInfo.song_lyrics[i].org,
@@ -74,7 +77,7 @@ function createLyricLineElement_2( orgLrcArr, trnLrc, lineIndex ) {
     for (var i = 0; i < orgLrcArr.length; ++i) {
         var lrc_word_Elem = document.createElement("span");
         lrc_word_Elem.setAttribute("class", "lyric_word lyric_word_from_" + lineIndex.toString());
-        lrc_word_Elem.innerText = orgLrcArr[i];
+        lrc_word_Elem.innerText = orgLrcArr[i].lrc;
 
         orgLrc_Elem.appendChild(lrc_word_Elem);
     }
@@ -107,7 +110,7 @@ function play_pause() {
         static_play_state = "playing";
 
         startUNIXTime = Date.now();
-        interval = setInterval(lyrics_check, 10);
+        interval = setInterval(lyrics_check_function, 10);
         $("#lyrics_container").animate({ scrollTop : 0 }, 200);
         break;
 
