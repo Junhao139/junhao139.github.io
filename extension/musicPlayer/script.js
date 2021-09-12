@@ -196,7 +196,6 @@ function lyrics_check() {
     }
 }
 
-var current_lyric_word_playing_index = -1;
 function lyrics_check_2() {
     var lyric_playing_index = 0;
     var lyric_word_playing_index = 0;
@@ -231,17 +230,17 @@ function lyrics_check_2() {
         return;
     }
 
-    if (lyric_playing_index == current_lyric_playing_index) {
-        if (lyric_word_playing_index == current_lyric_word_playing_index) {
-            return;
-        } else {
-            current_lyric_word_playing_index = lyric_word_playing_index;
-        }
-    } else {
+    if (lyric_playing_index != current_lyric_playing_index) {
         current_lyric_playing_index = lyric_playing_index;
-        current_lyric_word_playing_index = lyric_word_playing_index;
+        $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[lyric_playing_index].scrollY }, 350, "easeOutCubic");
     }
 
+    for (var j = 0; j < global_SongInfo.song_lyrics[lyric_playing_index].org.length; ++j) {
+        document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[j].style.opacity = "0.6";
+    }
+    document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[lyric_word_playing_index].style.opacity = "1";
+
+    // EFFECT
     var lyric_line_elements = document.getElementsByClassName("lyric_line");
     for (var i = 0; i < lyric_line_elements.length; ++i) {
         var difference = Math.abs(lyric_playing_index - i);
@@ -252,13 +251,6 @@ function lyrics_check_2() {
                 //line_element.style.filter = "blur(0px)";
                 line_element.style.opacity = "1";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 1)";
-                $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[i].scrollY }, 350, "easeOutCubic");
-
-                for (var j = 0; j < global_SongInfo.song_lyrics[i].org.length; ++j) {
-                    document.getElementsByClassName("lyric_word_from_" + i.toString())[j].style.opacity = "0.6";
-                }
-                document.getElementsByClassName("lyric_word_from_" + i.toString())[lyric_word_playing_index].style.opacity = "1";
-
                 break;
             case 1:
                 //line_element.style.filter = "blur(1px)";
