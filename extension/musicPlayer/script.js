@@ -84,7 +84,7 @@ function play_pause() {
     }
 }
 
-var current_lyric_playing_index = 0;
+var current_lyric_playing_index = -1;
 function lyrics_check() {
     var lyric_playing_index = 0;
     var current_time = Date.now();
@@ -110,6 +110,9 @@ function lyrics_check() {
         return;
     }
 
+    if (lyric_playing_index == current_lyric_playing_index) return;
+    else current_lyric_playing_index = lyric_playing_index;
+
     var lyric_line_elements = document.getElementsByClassName("lyric_line");
     for (var i = 0; i < lyric_line_elements.length; ++i) {
         var difference = Math.abs(lyric_playing_index - i);
@@ -117,38 +120,34 @@ function lyrics_check() {
         var line_element = lyric_line_elements[i];
         switch (difference) {
             case 0:
-                line_element.style.filter = "blur(0px)";
+                //line_element.style.filter = "blur(0px)";
                 line_element.style.opacity = "1";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 1)";
-
-                if (current_lyric_playing_index != i) {
-                    $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[i].scrollY }, 350, "easeOutCubic");
-                    current_lyric_playing_index = i;
-                }
+                $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[i].scrollY }, 350, "easeOutCubic");
 
                 break;
             case 1:
-                line_element.style.filter = "blur(1px)";
+                //line_element.style.filter = "blur(1px)";
                 line_element.style.opacity = "0.4";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             case 2:
-                line_element.style.filter = "blur(3px)";
+                //line_element.style.filter = "blur(3px)";
                 line_element.style.opacity = "0.2";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             case 3:
-                line_element.style.filter = "blur(6px)";
+                //line_element.style.filter = "blur(6px)";
                 line_element.style.opacity = "0.1";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             case 4:
-                line_element.style.filter = "blur(10px)";
+                //line_element.style.filter = "blur(10px)";
                 line_element.style.opacity = "0.05";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
             default:
-                line_element.style.filter = "blur(20px)";
+                //line_element.style.filter = "blur(20px)";
                 line_element.style.opacity = "0";
                 line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
                 break;
