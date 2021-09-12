@@ -63,6 +63,8 @@ function play_pause() {
     switch (static_play_state) {
     case "paused":
         document.getElementById("control_music_state_trigger").innerHTML = "replay";
+        document.getElementById("lyrics_container").style.overflowY = "hidden";
+        lyrics_scroll_height_check();
         audio_element.play();
         static_play_state = "playing";
 
@@ -73,6 +75,7 @@ function play_pause() {
 
     case "playing":
         document.getElementById("control_music_state_trigger").innerHTML = "play_arrow";
+        document.getElementById("lyrics_container").style.overflowY = "scroll";
         audio_element.load();
         static_play_state = "paused";
 
@@ -81,6 +84,7 @@ function play_pause() {
     }
 }
 
+var current_lyric_playing_index = 0;
 function lyrics_check() {
     var lyric_playing_index = 0;
     var current_time = Date.now();
@@ -115,7 +119,11 @@ function lyrics_check() {
                 line_element.style.filter = "blur(0px)";
                 line_element.style.opacity = "1";
 
-                //$("#lyrics_container").animate({ scrollTop : $(".lyric_line")[i].position().top }, 200);
+                if (current_lyric_playing_index != i) {
+                    $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[i].scrollY }, 350, "easeOutCubic");
+                    current_lyric_playing_index = i;
+                }
+
                 break;
             case 1:
                 line_element.style.filter = "blur(1px)";
@@ -144,4 +152,13 @@ function lyrics_check() {
 setInterval(ui_adjust, 100);
 function ui_adjust() {
     document.getElementById("lyrics_container").style.height = window.innerHeight - 0 + "px";
+}
+
+function lyrics_scroll_height_check() {
+    var lyric_line_elements = document.getElementsByClassName("lyric_line");
+    var height_sum = 0;
+    for (var i = 0; i < lyric_line_elements.length; ++i) {
+        global_SongInfo.song_lyrics[i].scrollY = height_sum;
+        height_sum += $(lyric_line_elements[i]).height() + 60;
+    }
 }

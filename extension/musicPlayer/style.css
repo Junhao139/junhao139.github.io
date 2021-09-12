@@ -37,16 +37,16 @@ div#main_container div#main_lyrics_container div#lyrics_container::-webkit-scrol
 div#main_container div#main_lyrics_container div#lyrics_container {
     /*background: rgba(20, 20, 20, 0.6);*/
     border-radius: 10px 10px 0px 0px;
-    padding: 100px 0px 0px 0px;
+    padding: 100px 0px 60px 0px;
     height: 100%;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
 div#main_container div#lyrics_container div.lyric_line {
-    margin: 60px 60px 0px 60px;
+    padding: 60px 60px 0px 60px;
     display: block;
     transition-timing-function: cubic-bezier(0,.2,0,1);
     transition-duration: 0.2s;
