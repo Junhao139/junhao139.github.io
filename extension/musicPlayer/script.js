@@ -210,6 +210,7 @@ function lyrics_check_2() {
             for (var j = global_SongInfo.song_lyrics[i].org.length - 1; j >= 0; --j) {
                 if (time_offset >= global_SongInfo.song_lyrics[i].org[j].show) {
                     lyric_word_playing_index = j;
+                    break;
                 }
             }
 
@@ -235,8 +236,14 @@ function lyrics_check_2() {
         $("#lyrics_container").animate({ scrollTop : global_SongInfo.song_lyrics[lyric_playing_index].scrollY }, 350, "easeOutCubic");
     }
 
+    if (lyric_playing_index != 0) {
+        for (var j = 0; j < global_SongInfo.song_lyrics[lyric_playing_index - 1].org.length; ++j) {
+            document.getElementsByClassName("lyric_word_from_" + (lyric_playing_index - 1).toString())[j].style.opacity = "1";
+        }
+    }
+
     for (var j = 0; j < global_SongInfo.song_lyrics[lyric_playing_index].org.length; ++j) {
-        document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[j].style.opacity = "0.6";
+        document.getElementsByClassName("lyric_word_from_" + (lyric_playing_index).toString())[j].style.opacity = "0.6";
     }
     document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[lyric_word_playing_index].style.opacity = "1";
 
