@@ -238,14 +238,14 @@ function lyrics_check_2() {
 
     if (lyric_playing_index != 0) {
         for (var j = 0; j < global_SongInfo.song_lyrics[lyric_playing_index - 1].org.length; ++j) {
-            document.getElementsByClassName("lyric_word_from_" + (lyric_playing_index - 1).toString())[j].style.opacity = "1";
+            document.getElementsByClassName("lyric_word_from_" + (lyric_playing_index - 1).toString())[j].style.borderBottom = "4px solid rgba(255, 255, 255, 0)";
         }
     }
 
     for (var j = 0; j < global_SongInfo.song_lyrics[lyric_playing_index].org.length; ++j) {
-        document.getElementsByClassName("lyric_word_from_" + (lyric_playing_index).toString())[j].style.opacity = "0.6";
+        document.getElementsByClassName("lyric_word_from_" + (lyric_playing_index).toString())[j].style.borderBottom = "4px solid rgba(255, 255, 255, 0)";
     }
-    document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[lyric_word_playing_index].style.opacity = "1";
+    document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[lyric_word_playing_index].style.borderBottom = "4px solid rgba(255, 255, 255, 1)";
 
     // EFFECT
     var lyric_line_elements = document.getElementsByClassName("lyric_line");

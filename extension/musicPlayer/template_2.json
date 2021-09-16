@@ -1,0 +1,34 @@
+{
+    "name" : {
+        "org" : "Story Of My Life",
+        "trn" : "我人生的故事"
+    },
+    "artist" : "One Direction",
+    "original_lrc_lang" : "en",
+    "translated_lrc_lang" : "zh",
+    "file_path" : "",
+    "song_lyrics" : [
+        {
+            "org" : [
+                {
+                    "lrc" : "Dance ",
+                    "show" : 1000
+                },
+                {
+                    "lrc" : "the ",
+                    "show" : 1000
+                },
+                {
+                    "lrc" : "night ",
+                    "show" : 1000
+                },
+                {
+                    "lrc" : "away",
+                    "show" : 1000
+                }
+            ],
+            "trn" : "以舞蹈挥去夜晚",
+            "show" : 10
+        }
+    ]
+}
