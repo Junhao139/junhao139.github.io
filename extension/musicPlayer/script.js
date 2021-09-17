@@ -1,4 +1,5 @@
 var global_SongInfo;
+var global_SongData;
 
 init();
 
@@ -48,8 +49,9 @@ function defineLyricFile() {
         }
     }
 
-    document.getElementById("main_audio_src").setAttribute("src", global_SongInfo.file_path);
-    document.getElementById("main_audio").load();
+    global_SongData = new Howl({
+        src : global_SongInfo.file_path
+    });
 }
 
 function createLyricLineElement( orgLrc, trnLrc ) {
@@ -97,27 +99,30 @@ function createLyricLineElement_2( orgLrcArr, trnLrc, lineIndex ) {
 
 var static_play_state = "paused";
 var startUNIXTime = 0;
+var endUNIXTime = 0;
 var interval;
 function play_pause() {
-    var audio_element = document.getElementById("main_audio");
-
     switch (static_play_state) {
     case "paused":
         document.getElementById("control_music_state_trigger").innerHTML = "replay";
         document.getElementById("lyrics_container").style.overflowY = "hidden";
         lyrics_scroll_height_check();
-        audio_element.play();
-        static_play_state = "playing";
 
-        startUNIXTime = Date.now();
-        interval = setInterval(lyrics_check_function, 10);
-        $("#lyrics_container").animate({ scrollTop : 0 }, 200);
+        wait_until(function() { return global_SongData.state() == "loaded"; }, function() {
+            global_SongData.play();
+            static_play_state = "playing";
+
+            startUNIXTime = Date.now();
+            endUNIXTime = startUNIXTime + global_SongData.duration() * 1000;
+            interval = setInterval(lyrics_check_function, 10);
+            $("#lyrics_container").animate({ scrollTop : 0 }, 200);
+        });
         break;
 
     case "playing":
         document.getElementById("control_music_state_trigger").innerHTML = "play_arrow";
         document.getElementById("lyrics_container").style.overflowY = "scroll";
-        audio_element.load();
+        global_SongData.stop();
         static_play_state = "paused";
 
         startUNIXTime = 0;
@@ -142,13 +147,17 @@ function lyrics_check() {
         var lyric_line_elements = document.getElementsByClassName("lyric_line");
         for (var i = 0; i < lyric_line_elements.length; ++i) {
             var line_element = lyric_line_elements[i];
-            line_element.style.filter = "blur(0px)";
+            //line_element.style.filter = "blur(0px)";
             line_element.style.opacity = "1";
             line_element.style.textShadow = "0px 0px 20px rgba(255, 255, 255, 0)";
         }
             
         clearInterval(interval);
         return;
+    }
+
+    if (current_time >= endUNIXTime) {
+        startUNIXTime == 0;
     }
 
     if (lyric_playing_index == current_lyric_playing_index) return;
@@ -247,6 +256,10 @@ function lyrics_check_2() {
     }
     document.getElementsByClassName("lyric_word_from_" + lyric_playing_index.toString())[lyric_word_playing_index].style.borderBottom = "4px solid rgba(255, 255, 255, 1)";
 
+    if (current_time >= endUNIXTime) {
+        play_pause();
+    }
+
     // EFFECT
     var lyric_line_elements = document.getElementsByClassName("lyric_line");
     for (var i = 0; i < lyric_line_elements.length; ++i) {
@@ -299,5 +312,13 @@ function lyrics_scroll_height_check() {
     for (var i = 0; i < lyric_line_elements.length; ++i) {
         global_SongInfo.song_lyrics[i].scrollY = height_sum;
         height_sum += $(lyric_line_elements[i]).height() + 60;
+    }
+}
+
+function wait_until(funcValue, funcExecAfter) {
+    if (!funcValue()) {
+        wait_until();
+    } else {
+        funcExecAfter();
     }
 }
