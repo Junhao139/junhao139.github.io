@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyric Generator</title>
+</head>
+<body>
+    <h1>歌词生成器</h1>
+    <div class="container">
+        <table>
+            <tr>
+                <td>歌名</td>
+                <input id="song_name" placeholder="" />
+            </tr>
+            <tr>
+                <td>歌手</td>
+                <input id="song_singer" placeholder="" />
+            </tr>
+            <tr>
+                <td>源语言</td>
+                <input id="song_lang" placeholder="" />
+            </tr>
+            <tr>
+                <td>翻译后语言</td>
+                <input id="song_trn_lang" placeholder="" />
+            </tr>
+            <tr>
+                <td>文件名</td>
+                <input id="song_file_name" placeholder="" />
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <h3>歌词</h3>
+        <div class="lyric_options">
+            <button class="lyric_option_btn">添加歌词</button>
+            <button class="lyric_option_btn">删除最后一条歌词</button>
+            <button class="lyric_option_btn">开始录制</button>
+            <span id="current_time">00:00.00</span>
+        </div>
+
+        <div class="lyric_line">
+            <span class="lyric_line_timestamp">00:00.00</span>
+            <input class="lyric_line_org" />
+            <input class="lyric_line_trn" />
+        </div>
+    </div>
+</body>
+</html>
