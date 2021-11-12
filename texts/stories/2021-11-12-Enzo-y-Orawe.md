@@ -28,7 +28,7 @@
 
 > La respuesta de Enzo fue un poco larga: Ganarias más dinero. Podrías comprar un motor fuera de borda a tu canoa. Entonces podrías llegar más lejos y pescar más. Y podrías comprarte otra canoa y otro motor, incluso más potente. Y así serías rico, como yo.
 
-恩佐回答得有点长：“你能赚得更多。你可以为你的渔船买一个低噪的马达。这样你就能够游得更远，再打更多的鱼。这样你就能够再买一条渔船和一台发动机，可能要更强劲的。这样你就会更有钱，和我一样。”
+恩佐回答得有点长：“你能赚得更多。你可以为你的渔船买一个低噪的马达。这样你就能够驶得更远，再打更多的鱼。这样你就能够再买一条渔船和一台更强劲的发动机。这样你就会更有钱，和我一样。”
 
 > ¿Y qué podría hacer, entonces? preguntó Orawe.
 
