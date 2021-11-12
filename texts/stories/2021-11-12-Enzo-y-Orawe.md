@@ -16,7 +16,7 @@
 
 > Porque ya he pescado suficiente para hoy, contestó Orawe.
 
-“因为我今天已经打够鱼了。”欧莱回答道。
+“因为我已经打够今天的鱼了。”欧莱回答道。
 
 > Y ¿por qué no pescas más de lo que necesitas?, insistió Enzo.
 
