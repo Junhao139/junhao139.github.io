@@ -85,6 +85,7 @@ div#content ul a li {
 	background-repeat: repeat-y;
 	background-position-y: center;
 	background-size: 100% auto;
+	background-attachment: fixed;
 }
 
 div#content ul a li:hover {
