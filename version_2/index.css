@@ -30,7 +30,12 @@ div#entry_cover div#cover_top span.text {
 }
 
 div#entry_cover div#cover_top div#cover_main {
-    margin-top: 100px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0%;
 }
 
 div#entry_cover div#cover_top div#cover_main span.cover_main_title {
@@ -45,12 +50,18 @@ div#entry_cover div#cover_top div#cover_main span.cover_main_title {
 
 div#entry_cover div#cover_bottom {
     display: block;
-    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 24%;
 }
 
+div#entry_cover div#cover_bottom div#cover_bottom_container {
+    
+}
+
+
+
 div#entry_cover div#cover_bottom svg#cover_bottom_logo {
-    display: flex;
-    align-items: center;
     width: auto;
     height: 20px;
 }
