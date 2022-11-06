@@ -34,7 +34,6 @@ function getdata() {
         resource,
         function (callback, status) {
             console.log("GETDATA STATUS: " + status);
-            console.log(callback)
             deduce_content(callback);
             
         }
@@ -83,7 +82,6 @@ function deduce_content(data) {
 
 function unix_time_parse(textnode) {
     var unix_time = textnode.time;
-    console.log(textnode.time)
     var time_zone = textnode.time_zone;
     var time_lag_min = textnode.time_lag_min;
 
@@ -102,7 +100,6 @@ function unix_time_parse(textnode) {
 
     output_str += " ";
 
-    console.log(date.getFullYear())
     output_str += (date.getFullYear()).toString() + " 年 " + (date.getMonth() + 1).toString() + " 月 " + (date.getDate()).toString() + " 日";
 
     return output_str;
