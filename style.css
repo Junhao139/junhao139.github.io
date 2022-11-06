@@ -88,6 +88,23 @@ div#content ul a li {
 	background-attachment: fixed;
 }
 
+div#content ul a li span.title {
+	font-weight: bold;
+	font-size: 1.2em;
+	display: block;
+}
+
+div#content ul a li span.date {
+	font-weight: normal;
+	font-size: 0.8em;
+	display: inline-block;
+	padding: 4px;
+	border-radius: 4px;
+	color: #8F8F8F;
+	background-color:rgba(30, 30, 30, 1);
+	margin-top: 4px;
+}
+
 div#content ul a li:hover {
 	padding: 16px 16px 16px 26px;
 }
