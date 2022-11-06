@@ -23,3 +23,20 @@ function logo_Animation() {
     elem_container.style.marginBottom = "10px";
     elem_img.style.width = "64px";
 }
+
+function getdata() {
+    var resource = "https://blog.zminutes.com/data/data.json"
+
+    /* GET CONTENTS THEN PUSH THEM */
+    $.get(
+        resource,
+        function (callback, status) {
+            console.log("GETDATA STATUS: " + status);
+            deduce_content(callback);
+        }
+    );
+}
+
+function deduce_content(data) {
+    
+}
