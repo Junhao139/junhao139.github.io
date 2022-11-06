@@ -1,6 +1,6 @@
 [
     {
-        "section_name" : "子铭的日记",
+        "section_name" : "认真的随笔",
         "directory" : "zhBlogs",
         "texts" : [
             {
@@ -65,6 +65,13 @@
                 "time" : 1630722274,
                 "time_zone" : "es",
                 "time_lag" : 60
+            },
+            {
+                "title" : "2022 年 8 月 9 日记 —— 语法自信",
+                "file" : "2022-8-9-YUFAZIXIN",
+                "time" : 1659568955,
+                "time_zone" : "es",
+                "time_lag" : 60
             }
         ]
     },
@@ -83,6 +90,13 @@
                 "title" : "《来自时间的声音》",
                 "file" : "2021-5-22-TIME_S_SOUND",
                 "time" : 1621650274,
+                "time_zone" : "es",
+                "time_lag" : 60
+            },
+            {
+                "title" : "西班牙粗鄙之语汇总与解释",
+                "file" : "2022-11-5-STRONGWORDS",
+                "time" : 1667647355,
                 "time_zone" : "es",
                 "time_lag" : 60
             }

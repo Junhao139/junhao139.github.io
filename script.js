@@ -52,7 +52,11 @@ function deduce_content(data) {
         var section_container = document.createElement("ul");
 
         var section_texts = section.texts;
-        section_texts.forEach(a_text => {
+
+        // produce them from back
+        for (var text_index = section_texts.length; text_index > 0; ++text_index) {
+            a_text = section_texts[text_index - 1];
+
             var link_element = document.createElement("a");
             link_element.setAttribute("href", "./reader.html?cnt=" + section.directory + "%2F" + a_text.file);
 
@@ -73,7 +77,7 @@ function deduce_content(data) {
             link_element.appendChild(list_element);
 
             section_container.appendChild(link_element);
-        });
+        }
 
         container.appendChild(section_title);
         container.appendChild(section_container);
