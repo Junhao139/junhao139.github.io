@@ -38,5 +38,29 @@ function getdata() {
 }
 
 function deduce_content(data) {
-    
+    var container = document.getElementById("content");
+    var deduced = JSON.parse(data)
+
+    // data is an array
+    deduced.forEach(section => {
+        var section_title = document.createElement("h4");
+        var section_container = document.createElement("ul");
+
+        var section_texts = section.texts;
+        section_texts.forEach(a_text => {
+            var link_element = document.createElement("a");
+            link_element.setAttribute("href", "./reader.html?cnt=" + section.section_name + "%2F" + a_text.file);
+
+            var list_element = document.createElement("li");
+            var text_title = a_text.title;
+
+            list_element.appendChild(document.createTextNode(text_title));
+            link_element.appendChild(list_element);
+
+            section_container.appendChild(link_element);
+        });
+
+        container.appendChild(section_title);
+        container.appendChild(section_container);
+    });
 }
