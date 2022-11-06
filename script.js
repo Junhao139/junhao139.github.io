@@ -54,8 +54,8 @@ function deduce_content(data) {
         var section_texts = section.texts;
 
         // produce them from back
-        for (var text_index = section_texts.length; text_index > 0; ++text_index) {
-            a_text = section_texts[text_index - 1];
+        for (var text_index = section_texts.length; text_index > 0; --text_index) {
+            var a_text = section_texts[text_index - 1];
 
             var link_element = document.createElement("a");
             link_element.setAttribute("href", "./reader.html?cnt=" + section.directory + "%2F" + a_text.file);
