@@ -20,18 +20,26 @@
         <button onclick="convertSource('replit');">repl.co 源</button>
         <button onclick="askForChangingSource(false);">内容已经加载完成，无需更换源</button>
     </div>
-    
-    <div id="textInfos"></div>
 
     <div id="pageContentContainer">
         <div id="pageContent">
+            <div id="textInfos" style="display:none"></div>
+            <div id="textSpace"></div>
             <img id="loadingAnimation" src="./resources/loadingAnim.gif" />
         </div>
     </div>
 
     <div id="footer">
         <span style="display: block;">非常抱歉，暂不支持评论功能。（因为打算用于处理评论消息的服务器…… 一败涂地，对于在中国国内的小伙伴很不友好）</span>
-        <div style="text-align: center; margin-top: 0.4em;"><a href="https://blog.zminutes.com/" style="display: inline-block;">回到我的 Blog 主页</a></div>
+        <div style="text-align: center; margin-top: 0.4em;"><a href="https://blog.zminutes.com/" style="
+            text-decoration: none;
+            color: rgb(255, 187, 0);
+            text-align: center;
+            padding: 10px 24px;
+            background: #2F2F2F;
+            border-radius: 100px;
+            border: none;
+            display: inline-block;">回到我的 Blog 主页</a></div>
     </div>
 
     <script src="./readerScript.js"></script>

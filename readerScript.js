@@ -49,8 +49,10 @@ function getMarkdownContentWithSource(sourceType, fileName) {
         directedURL,
         function (callback, status) {
             if (!contentIsLoaded) {
-                document.getElementById("pageContent").innerHTML = getMarkdownTexts(callback);
+                document.getElementById("textSpace").innerHTML = getMarkdownTexts(callback);
                 document.getElementById("textInfos").innerHTML = "阅读时长：" + getReadingDuration(callback.length) + " 分钟"; 
+                document.getElementById("textInfos").style.display = "inline-block";
+                document.getElementById("loadingAnimation").style.display = "none";
                 contentIsLoaded = true;
                 console.log("GET STATUS: " + status);
             }
@@ -102,7 +104,8 @@ function customPageMargin() {
     const screenMaxWidth = window.screen.availWidth;
 
     if ((width - 40) <= (screenMaxWidth * 60 / 100) || window.mobileAndTabletCheck()) {
-        container.style.margin = "0px 20px";
+        container.style.margin = "0px 0px";
+        container.style.padding = "40px";
         container.style.width = "initial";
     } else {
         container.style.width = (screenMaxWidth * 60 / 100) + "px";
