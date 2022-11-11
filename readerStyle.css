@@ -94,24 +94,25 @@ p {
 code {
     padding: 6px;
     font-family: 'Consolas', 'Courier New', Courier, monospace;
-    background: #3a3a3a;
-    color: #ffffff;
     border-radius: 4px;
+    background: #D0E4F0;
+    color: #002F5F;
 }
 
 pre code {
-    padding: 10px;
+    padding: 16px;
     font-family: 'Consolas', 'Courier New', Courier, monospace;
-    background: #3a3a3a;
-    color: #ffffff;
-    border-radius: 4px;
+    background: #D0E4F0;
+    color: #002F5F;
+    border-radius: 8px;
     display: block;
+    overflow-x: scroll;
 }
 
 a {
     text-decoration: none;
-    color: rgb(255, 187, 0);
-    border-bottom: 1px solid rgb(255, 187, 0);
+    color: rgb(230 155 12);
+    border-bottom: 1px solid rgb(230, 155, 12);
     text-align: center;
 }
 
@@ -120,25 +121,28 @@ blockquote {
     margin-block: 0px;
     margin-inline: 0px;
     padding: 0.4em 0.4em 0.4em 1.4em;
-    background: #2f2f2f;
+    background: #F0F0F0;
 }
 
 strong {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 ::marker {
-    color: #a7a7a7;
+    color: rgba(0, 0, 0, 1);
 }
 
 li {
-    color: #FFFFFF;
     margin: 1em;
+    letter-spacing: 0.6px;
+    line-height: 2.4em;
+    font-weight: normal;
+    color: #000;
 }
 
 table {
     border-spacing: 0px;
-    color: #fff;
+    color: #000;
 }
 
 thead {
