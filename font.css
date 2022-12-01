@@ -99,3 +99,54 @@
     font-display: swap;
     src: url(https://blog.zminutes.com/resources/fonts/HarmonyOS_Sans_SC_Black.ttf) format('ttf');
 }
+
+/* NOTO SERIF SC */
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 200;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-ExtraLight.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 300;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-Light.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-Regular.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-Medium.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 600;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-SemiBold.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-Bold.otf) format('otf');
+}
+
+@font-face {
+    font-family: 'Noto Serif SC';
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://blog.zminutes.com/resources/fonts/NotoSerifSC-Black.otf) format('otf');
+}
