@@ -21,3 +21,15 @@ function arrange_bg_image() {
         body_element.style.backgroundSize = "auto 100%";
     }
 }
+
+
+// change when resizing
+function resize_page_left() {
+    var mainpage_left_elem = document.getElementById("mainpage-left");
+    var mainpage_rightbar_width = 80;
+
+    const viewport_w = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    const viewport_h = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+    mainpage_left_elem.style.width = (viewport_w - mainpage_rightbar_width) + "px";
+}
