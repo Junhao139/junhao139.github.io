@@ -7,7 +7,7 @@ body {
     color: #000;
 }
 
-div#mainpage-left {
+div#mainpage-left, div#alltexts-left {
     text-align: center;
     max-height: 100%;
     height: 100%;
@@ -15,9 +15,14 @@ div#mainpage-left {
     overflow-x: clip;
     scrollbar-width: 0;
     -ms-overflow-style: none;
+    position: absolute;
 }
 
 div#mainpage-left::-webkit-scrollbar {
+    display: none;
+}
+
+div#alltexts-left::-webkit-scrollbar {
     display: none;
 }
 
@@ -91,6 +96,55 @@ span.mainpage-idea-cnt {
     margin-top: 0.4em;
 }
 
+div.alltexts-textctn {
+    margin-top: 40px;
+}
+
+span.textctn-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2em;
+    display: block;
+    text-align: initial;
+}
+
+div.textctn-text-elem-ctn {
+    padding: 4px;
+}
+
+div.textctn-text-elem {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    color: #fff;
+    padding: 20px;
+    height: 100%;
+}
+
+div.textctn-text-elem span.textctn-text-date {
+    font-family: 'Noto Serif SC', serif;
+    display: block;
+    text-align: initial;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+}
+
+div.textctn-text-elem span.textctn-text-title {
+    font-family: 'Noto Serif SC', serif;
+    display: block;
+    text-align: initial;
+    font-weight: 700;
+    font-size: 1.3em;
+}
+
+div#mainpage-right {
+    width: 64px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+}
+
 div.bar-option {
     text-align: center;
     margin-top: 2em;
@@ -98,7 +152,7 @@ div.bar-option {
 
 div.bar-option img {
     display: inline-block;
-    width: 36px;
+    width: 32px;
     height: auto;
 }
 
@@ -108,14 +162,5 @@ div.bar-option span.bar-option-text {
     display: inline-block;
     font-family: 'HarmonyOS Sans SC', sans-serif;
     font-weight: 300;
-}
-
-div#mainpage-right {
-    width: 80px;
-    height: 100%;
-    position: fixed;
-    right: 0;
-    top: 0;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(20px);
+    font-size: 0.8em;
 }
