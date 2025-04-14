@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+
+div#rainyText-pool {
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #2b2a47, #030039);
+    overflow: hidden;
+}
+
+div#rainyText-pool span.raindrop {
+    transition-duration: 0;
+    font-size: large;
+    color: #00000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    position: absolute;
+    display: inline-block;
+}

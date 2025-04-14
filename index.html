@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-        body {
-            margin: 0;
-        }
-        #cool-text-canvas {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas height="720" width="1024" id="cool-text-canvas"></canvas>
+    <h1 style="color:white;display:block;position:absolute;left:0;top:0;z-index:1000;" id="rainyText-debug-msg">FPS: 129</h1>
+    <div id="rainyText-pool"></div>
+    <!--div id="play-with-rainyText">
+        <p>Play with it</p>
+        <input type="range" min="0" max="100" value="20" name="" id="" class="pw-rainyText-slider">
+    </div-->
+    <div id="content">
 
-    <script src="./CoolTextCanvas.js"></script>
+    </div>
+    <script src="./rainyText.js"></script>
 </body>
 </html>
