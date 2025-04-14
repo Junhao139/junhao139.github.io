@@ -11,7 +11,7 @@ let __RainyTextGlobal = {
 
     // for animation computing
     last_timestamp: null,
-    max_obj_speed: 0.0002 // an point in space can reach at max this speed
+    max_obj_speed: 0.25 // an point in space can reach at max this speed
 };
 
 window.onload = function() {
@@ -163,7 +163,7 @@ class ColorRGB {
 function generate_random_chars_ini(cameraprops, char_size, max_z, number, char_array) {
     var array_size = char_array.length;
     var ret_array = new Array();
-    var minimum_z = 0.5*Math.max(char_size.x / cameraprops.tan_angle, char_size.y / cameraprops.tan_angle);
+    var minimum_z = Math.max(char_size.x / cameraprops.tan_angle, char_size.y / cameraprops.tan_angle);
 
     for (var i = 0; i < number; ++i) {
         var char = char_array[parseInt(Math.random() * array_size)];
@@ -194,8 +194,10 @@ function draw_char_dom(dot_char_3d, cameraprops, max_depth) {
     // if the character is beyond the max_depth or behind the camera,
     // don't draw it
     if (dot_char_3d.pos.z - cameraprops.pos.z >= max_depth || dot_char_3d.pos.z - cameraprops.pos.z <= 0) {
+        dot_char_3d.dom.style.display = "none";
         return false;
     }
+    dot_char_3d.dom.style.display = "inline-block";
 
     var dot_char_3d_corners = [
         dot_char_3d.pos,
@@ -266,7 +268,7 @@ function physics_create_tinydrops(global_props, bigdrop) {
     
     return new DotChar3D(
         new vector3(bigdrop.pos.x, -bigdrop.pos.y, bigdrop.pos.z),
-        new vector3((2*Math.random() - 1) * (bigdrop.speed.x + global_props.max_obj_speed*100), -bigdrop.speed.y * 0.2, (2*Math.random() - 1) * (bigdrop.speed.x + global_props.max_obj_speed*100)),
+        new vector3((2*Math.random() - 1) * (bigdrop.speed.x + global_props.max_obj_speed*0.2), -bigdrop.speed.y *0.5, (2*Math.random() - 1) * (bigdrop.speed.z + global_props.max_obj_speed*0.2)),
         new vector2(bigdrop.size.x / 4.0, bigdrop.size.y / 4.0),
         (' ' + bigdrop.char).slice(1),
         new_char_dom_elem,
@@ -278,7 +280,7 @@ function physics_create_tinydrops(global_props, bigdrop) {
 // "delta" is the time difference between the last frame and the current, in ms
 // "global_props" should be the __RainyTextGlobal
 function physics(delta, global_props) {
-    const gravity = -0.00025;//-9.8;
+    const gravity = -0.001;//-9.8;
     let bigdrops = global_props.bigdrops_pool;
     let tinydrops = global_props.tinydrops_pool;
 
@@ -286,13 +288,13 @@ function physics(delta, global_props) {
     for (let i = 0; i < bigdrops.length; ++i) {
         bigdrops[i].speed.y += delta*gravity;
         //bigdrops[i].speed.x = sign(bigdrops[i].speed.x) * max(abs(bigdrops[i].speed.x), global_props.max_obj_speed);
-        bigdrops[i].speed.y = sign(bigdrops[i].speed.y) * Math.max(Math.abs(bigdrops[i].speed.y), global_props.max_obj_speed);
+        bigdrops[i].speed.y = sign(bigdrops[i].speed.y) * Math.min(Math.abs(bigdrops[i].speed.y), global_props.max_obj_speed);
         //bigdrops[i].speed.z = sign(bigdrops[i].speed.z) * max(abs(bigdrops[i].speed.z), global_props.max_obj_speed);
     }
     for (let i = 0; i < tinydrops.length; ++i) {
         tinydrops[i].speed.y += delta*gravity;
         //tinydrops[i].speed.x = sign(tinydrops[i].speed.x) * max(abs(tinydrops[i].speed.x), global_props.max_obj_speed);
-        tinydrops[i].speed.y = sign(tinydrops[i].speed.y) * Math.max(Math.abs(tinydrops[i].speed.y), global_props.max_obj_speed);
+        tinydrops[i].speed.y = sign(tinydrops[i].speed.y) * Math.min(Math.abs(tinydrops[i].speed.y), global_props.max_obj_speed);
         //tinydrops[i].speed.z = sign(tinydrops[i].speed.z) * max(abs(tinydrops[i].speed.z), global_props.max_obj_speed);
     }
 
@@ -380,9 +382,9 @@ function rainy_text_main() {
 
     __RainyTextGlobal.camera = new CameraProps(Math.PI / 3, new vector3(0, 20, 0), viewport_width, viewport_height, 0.05, 1.5, 40);
 
-    let furthest_gen_relative_distance = 100;
+    let furthest_gen_relative_distance = 200;
     let char_size = new vector2(10, 20);
-    __RainyTextGlobal.bigdrops_pool_size = 50;
+    __RainyTextGlobal.bigdrops_pool_size = 80;
 
     __RainyTextGlobal.bigdrops_pool = generate_random_chars_ini(__RainyTextGlobal.camera, char_size, furthest_gen_relative_distance, __RainyTextGlobal.bigdrops_pool_size, __RainyTextGlobal.accepted_char_array);
     __RainyTextGlobal.bigdrops_pool.sort((a, b) => b.pos.z - a.pos.z);
