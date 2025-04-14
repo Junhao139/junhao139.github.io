@@ -371,7 +371,7 @@ function physics_and_animate(timestamp) {
 
     __RainyTextGlobal.last_timestamp = timestamp;
     //requestAnimationFrame(physics_and_animate);
-    document.getElementById("rainyText-debug-msg").innerText = "FPS: " + (parseInt(1000/(performance.now() - timestamp))).toString();
+    document.getElementById("rainyText-debug-msg").innerText = "FPS: " + (parseInt(1000/(performance.now() - timestamp))).toString() + "\n" + "Childcount: " + (__RainyTextGlobal.pool_DOM_elem.childElementCount).toString();
 }
 
 // main function
