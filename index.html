@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Junhao's</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onscroll="set_scroll_camera_blur()">
+    <div id="background"></div>
     <h1 style="color:white;display:block;position:absolute;left:0;top:0;z-index:1000;" id="rainyText-debug-msg">FPS: 129</h1>
     <div id="rainyText-pool"></div>
     <!--div id="play-with-rainyText">
         <p>Play with it</p>
         <input type="range" min="0" max="100" value="20" name="" id="" class="pw-rainyText-slider">
     </div-->
+    <div id="navbar"></div>
     <div id="content">
+        <div class="content-section">
+            <span class="section-title">Me</span>
+            <span class="section-text">
+                <ul>
+                    <li>A Computer-Science + Maths student</li>
 
+                    <li>4-languages polyglot, plus 2 still on the way of learning: English, Chinese, Spanish, Catalan, plus French, Japanese</li>
+                    
+                    <li>Keen on piano playing and writing articles</li>
+                    
+                    <li>Passionate about humanistics, classical music, languages, books...</li>
+                    
+                    <li>Interested in big tech events!</li>
+                </ul>
+            </span>
+        </div>
     </div>
     <script src="./rainyText.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

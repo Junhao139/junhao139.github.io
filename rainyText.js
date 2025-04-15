@@ -11,7 +11,7 @@ let __RainyTextGlobal = {
 
     // for animation computing
     last_timestamp: null,
-    max_obj_speed: 0.25 // an point in space can reach at max this speed
+    max_obj_speed: 250 // an point in space can reach at max this speed
 };
 
 window.onload = function() {
@@ -163,7 +163,7 @@ class ColorRGB {
 function generate_random_chars_ini(cameraprops, char_size, max_z, number, char_array) {
     var array_size = char_array.length;
     var ret_array = new Array();
-    var minimum_z = Math.max(char_size.x / cameraprops.tan_angle, char_size.y / cameraprops.tan_angle);
+    var minimum_z = 2*Math.max(char_size.x / cameraprops.tan_angle, char_size.y / cameraprops.tan_angle);
 
     for (var i = 0; i < number; ++i) {
         var char = char_array[parseInt(Math.random() * array_size)];
@@ -190,14 +190,16 @@ function generate_random_chars_ini(cameraprops, char_size, max_z, number, char_a
 
 // draw a character to the canvas, if the character is not in the viewport then nothing happens
 // returns true if the character meets the conditions and it has been drawn. Otherwise false.
-function draw_char_dom(dot_char_3d, cameraprops, max_depth) {
+function draw_char_dom(dot_char_3d, cameraprops, max_depth, tinydrop = false) {
     // if the character is beyond the max_depth or behind the camera,
     // don't draw it
     if (dot_char_3d.pos.z - cameraprops.pos.z >= max_depth || dot_char_3d.pos.z - cameraprops.pos.z <= 0) {
+        //dot_char_3d.dom.style.opacity = "0";
         dot_char_3d.dom.style.display = "none";
         return false;
     }
     dot_char_3d.dom.style.display = "inline-block";
+    //dot_char_3d.dom.style.opacity = "1";
 
     var dot_char_3d_corners = [
         dot_char_3d.pos,
@@ -234,23 +236,22 @@ function draw_char_dom(dot_char_3d, cameraprops, max_depth) {
     let scale = font_size_scale;
     var blur_rad = 200000 * cameraprops.blur_radius(dot_char_3d.pos) / scale;
 
+    let opacity_scale = 3.0;
+    let tinydrop_opacity = Math.min(Math.abs(dot_char_3d.pos.y), opacity_scale);
+    tinydrop_opacity /= opacity_scale;
+    //if (tinydrop) scale *= tinydrop_opacity;
     
     Object.assign(dot_char_3d.dom.style, {
         textShadow: "0 0 " + (blur_rad).toString() + "px " + "rgba(" + 
             (parseInt(dot_char_3d.color.r)).toString() + ", " + 
             (parseInt(dot_char_3d.color.g)).toString() + ", " + 
             (parseInt(dot_char_3d.color.b)).toString() + ", " + 
-        "255)",
+            (tinydrop ? (tinydrop_opacity).toString() : "1") +
+        ")",
         transform: "translate(" + translate.x + "px, " + translate.y + "px) " +
-            "scale(" + scale + ")"
+            "scale(" + scale + ")"//,
+        //opacity: tinydrop ? tinydrop_opacity.toString() : "1"
     });
-    /*dot_char_3d.dom.style.textShadow = "0 0 " + (blur_rad).toString() + "px " + "rgba(" + 
-            (parseInt(dot_char_3d.color.r)).toString() + ", " + 
-            (parseInt(dot_char_3d.color.g)).toString() + ", " + 
-            (parseInt(dot_char_3d.color.b)).toString() + ", " + 
-        "255)";
-    dot_char_3d.dom.style.transform = "translate(" + translate.x + "px, " + translate.y + "px) " +
-            "scale(" + scale + ")";*/
 
     return true;
 }
@@ -268,7 +269,7 @@ function physics_create_tinydrops(global_props, bigdrop) {
     
     return new DotChar3D(
         new vector3(bigdrop.pos.x, -bigdrop.pos.y, bigdrop.pos.z),
-        new vector3((2*Math.random() - 1) * (bigdrop.speed.x + global_props.max_obj_speed*0.2), -bigdrop.speed.y *0.5, (2*Math.random() - 1) * (bigdrop.speed.z + global_props.max_obj_speed*0.2)),
+        new vector3((2*Math.random() - 1) * (bigdrop.speed.x + global_props.max_obj_speed*0.1), -bigdrop.speed.y *0.2, (2*Math.random() - 1) * (bigdrop.speed.z + global_props.max_obj_speed*0.1)),
         new vector2(bigdrop.size.x / 4.0, bigdrop.size.y / 4.0),
         (' ' + bigdrop.char).slice(1),
         new_char_dom_elem,
@@ -280,7 +281,13 @@ function physics_create_tinydrops(global_props, bigdrop) {
 // "delta" is the time difference between the last frame and the current, in ms
 // "global_props" should be the __RainyTextGlobal
 function physics(delta, global_props) {
-    const gravity = -0.001;//-9.8;
+    // if time invariance is too small
+    if (Math.abs(delta) < 1e-6) {
+        console.log(",");
+        return;
+    }
+
+    const gravity = -500;//-9.8;
     let bigdrops = global_props.bigdrops_pool;
     let tinydrops = global_props.tinydrops_pool;
 
@@ -354,7 +361,8 @@ function physics_and_animate(timestamp) {
     let delta = timestamp - __RainyTextGlobal.last_timestamp;
 
     // compute the physics
-    physics(delta*1, __RainyTextGlobal);
+    // delta is in ms, now convert it to s
+    physics(delta/1000, __RainyTextGlobal);
 
     //__RainyTextGlobal.camera.focus_dist += (timestamp - __RainyTextGlobal.last_timestamp) * 0.01;
 
@@ -365,7 +373,7 @@ function physics_and_animate(timestamp) {
         draw_char_dom(__RainyTextGlobal.bigdrops_pool[i], __RainyTextGlobal.camera, max_depth);
     }
     for (let i = 0; i < __RainyTextGlobal.tinydrops_pool.length; ++i) {
-        draw_char_dom(__RainyTextGlobal.tinydrops_pool[i], __RainyTextGlobal.camera, max_depth);
+        draw_char_dom(__RainyTextGlobal.tinydrops_pool[i], __RainyTextGlobal.camera, max_depth, true);
         //console.log("?");
     }
 
@@ -380,11 +388,11 @@ function rainy_text_main() {
     const viewport_height = __RainyTextGlobal.pool_DOM_elem.offsetHeight;
     console.log(viewport_width + " " + viewport_height);
 
-    __RainyTextGlobal.camera = new CameraProps(Math.PI / 3, new vector3(0, 20, 0), viewport_width, viewport_height, 0.05, 1.5, 40);
+    __RainyTextGlobal.camera = new CameraProps(Math.PI / 3, new vector3(0, 30, 0), viewport_width, viewport_height, 0.05, 1.5, 100);
 
-    let furthest_gen_relative_distance = 200;
+    let furthest_gen_relative_distance = 300;
     let char_size = new vector2(10, 20);
-    __RainyTextGlobal.bigdrops_pool_size = 80;
+    __RainyTextGlobal.bigdrops_pool_size = 50;
 
     __RainyTextGlobal.bigdrops_pool = generate_random_chars_ini(__RainyTextGlobal.camera, char_size, furthest_gen_relative_distance, __RainyTextGlobal.bigdrops_pool_size, __RainyTextGlobal.accepted_char_array);
     __RainyTextGlobal.bigdrops_pool.sort((a, b) => b.pos.z - a.pos.z);

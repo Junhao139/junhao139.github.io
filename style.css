@@ -2,21 +2,57 @@ body {
     margin: 0;
 }
 
+:root {
+    --global-txt-font: 'Inter', sans-serif;
+}
+
+/* Rainy Text */
+
 div#rainyText-pool {
-    position: absolute;
+    z-index: -100;
+    left: 0;
+    top: 0;
+    position: fixed;
     margin: 0;
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to bottom, #2b2a47, #030039);
     overflow: hidden;
+    user-select: none;
 }
 
 div#rainyText-pool span.raindrop {
     transition-duration: 0;
-    font-size: large;
+    font-size: 50px;
     color: #00000000;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
     position: absolute;
     display: inline-block;
+}
+
+/* Page */
+
+div#content {
+    margin: 0;
+    margin-top: 100%;
+    font-family: var(--global-txt-font);
+}
+
+div#content div.content-section {
+    margin-top: 60px;
+}
+
+div#content div.content-section span.section-title {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    font-size: 40px;
+}
+
+div#content div.content-section span.section-text {
+    font-weight: 400;
+    color: #fff;
+    display: block;
 }
