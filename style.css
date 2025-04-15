@@ -4,6 +4,7 @@ body {
 
 :root {
     --global-txt-font: 'Inter', sans-serif;
+    --global-txt-size: 25px;
 }
 
 /* Rainy Text */
@@ -31,28 +32,106 @@ div#rainyText-pool span.raindrop {
     display: inline-block;
 }
 
+/* Minimalist responsiveness */
+
+.container {
+    width: 100%;
+    padding: 0 1rem; /* gutter space */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+
 /* Page */
 
+div#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 40px;
+}
+
+div#navbar div#navbar-ctner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div#navbar div#navbar-logo {
+    display: inline-block;
+}
+
+div#navbar div#navbar-bar {
+    display: inline-block;
+}
+
+div#navbar div#navbar-bar div#navbar-bar-text {
+    display: block;
+}
+
+div#navbar div#navbar-bar div#navbar-bar-text div.navbar-bar-option {
+    padding: 10px 20px;
+    font-family: var(--global-txt-font);
+    font-size: var(--global-txt-size);
+    color: #7875B0;
+    display: inline-block;
+    transition-duration: 0.3s;
+}
+
+div#navbar div#navbar-bar div#navbar-bar-gradient {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, #ffff, #fff0);
+}
+
 div#content {
-    margin: 0;
     margin-top: 100%;
     font-family: var(--global-txt-font);
 }
 
 div#content div.content-section {
-    margin-top: 60px;
+    margin-bottom: 150px;
+    transition-duration: 0.3s;
 }
 
 div#content div.content-section span.section-title {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     font-weight: 700;
     color: #fff;
     display: block;
-    font-size: 40px;
+    font-size: 100px;
 }
 
 div#content div.content-section span.section-text {
     font-weight: 400;
     color: #fff;
     display: block;
+    line-height: 50px;
+    font-size: var(--global-txt-size);
 }

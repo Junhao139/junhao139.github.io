@@ -178,7 +178,7 @@ function generate_random_chars_ini(cameraprops, char_size, max_z, number, char_a
         var rel_y = Math.abs(cameraprops.tan_angle * (cameraprops.pos.z + max_z) * cameraprops.multiply_factor.y);
         ret_array.push(new DotChar3D(
             new vector3(cameraprops.pos.x + rel_x, cameraprops.pos.y + rel_y, cameraprops.pos.z + rel_z),
-            new vector3(0, -__RainyTextGlobal.max_obj_speed, 0),
+            new vector3(-30, -__RainyTextGlobal.max_obj_speed, 0),
             char_size,
             char,
             new_char_dom_elem,
@@ -270,7 +270,7 @@ function physics_create_tinydrops(global_props, bigdrop) {
     return new DotChar3D(
         new vector3(bigdrop.pos.x, -bigdrop.pos.y, bigdrop.pos.z),
         new vector3((2*Math.random() - 1) * (bigdrop.speed.x + global_props.max_obj_speed*0.1), -bigdrop.speed.y *0.2, (2*Math.random() - 1) * (bigdrop.speed.z + global_props.max_obj_speed*0.1)),
-        new vector2(bigdrop.size.x / 4.0, bigdrop.size.y / 4.0),
+        new vector2(bigdrop.size.x / 3.0, bigdrop.size.y / 3.0),
         (' ' + bigdrop.char).slice(1),
         new_char_dom_elem,
         bigdrop.color
@@ -388,9 +388,9 @@ function rainy_text_main() {
     const viewport_height = __RainyTextGlobal.pool_DOM_elem.offsetHeight;
     console.log(viewport_width + " " + viewport_height);
 
-    __RainyTextGlobal.camera = new CameraProps(Math.PI / 3, new vector3(0, 30, 0), viewport_width, viewport_height, 0.05, 1.5, 100);
+    __RainyTextGlobal.camera = new CameraProps(Math.PI / 3, new vector3(0, 40, 0), viewport_width, viewport_height, 0.05, 1.5, 100);
 
-    let furthest_gen_relative_distance = 300;
+    let furthest_gen_relative_distance = 200;
     let char_size = new vector2(10, 20);
     __RainyTextGlobal.bigdrops_pool_size = 50;
 

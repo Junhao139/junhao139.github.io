@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
-<body onscroll="set_scroll_camera_blur()">
+<body onscroll="set_scroll_camera_blur();set_scroll_section_highlight();" onresize="">
     <div id="background"></div>
     <h1 style="color:white;display:block;position:absolute;left:0;top:0;z-index:1000;" id="rainyText-debug-msg">FPS: 129</h1>
     <div id="rainyText-pool"></div>
@@ -17,26 +17,145 @@
         <p>Play with it</p>
         <input type="range" min="0" max="100" value="20" name="" id="" class="pw-rainyText-slider">
     </div-->
-    <div id="navbar"></div>
-    <div id="content">
+    <div id="navbar">
+        <div id="navbar-ctner" class="container">
+            <div id="navbar-logo">Junhao.one</div>
+            <div id="navbar-bar">
+                <div id="navbar-bar-text">
+                    <div class="navbar-bar-option">Me</div>
+                    <div class="navbar-bar-option">Projects & achievements</div>
+                    <div class="navbar-bar-option">Life until now</div>
+                    <div class="navbar-bar-option">CV & contact</div>
+                </div>
+                <div id="navbar-bar-gradient"></div>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="container">
         <div class="content-section">
             <span class="section-title">Me</span>
             <span class="section-text">
                 <ul>
                     <li>A Computer-Science + Maths student</li>
-
                     <li>4-languages polyglot, plus 2 still on the way of learning: English, Chinese, Spanish, Catalan, plus French, Japanese</li>
-                    
                     <li>Keen on piano playing and writing articles</li>
-                    
                     <li>Passionate about humanistics, classical music, languages, books...</li>
-                    
                     <li>Interested in big tech events!</li>
                 </ul>
             </span>
         </div>
+
+        <div class="content-section">
+            <span class="section-title">Projects & achievements</span>
+            <span class="section-text">
+                Classified by field, each sorted by maturity.<br>
+                <b>Informatics</b>
+                <ol>
+                    <li>This marvellous webpage</li>
+                    <li>Website for a sushi restaurant, the design part and the logic for their online menu book (only mobile)</li>
+                    <li>Wúlica: a game to feel a sense of Physics movements</li>
+                    <li>A simple BMP decoder</li>
+                </ol>
+                <b>Maths</b>
+                <ol>
+                    <li>Demostration: minimum number of computations needed for a specific term in the Taylor polynomial (in Catalan)</li>
+                </ol>
+                <b>Music</b>
+                <ol>
+                    <li>Piano piece: Marble Times composed by Junhao</li>
+                </ol>
+                <b>Languages</b>
+                <ol>
+                    <li>Cambridge C1-level First Certificate (aiming now for C2)</li>
+                    <li>Video: Chinese translation of an Apple commercial (on Bilibili platform)</li>
+                </ol>
+                <b>Arts</b>
+                <ol>
+                    <li>Winner drawing for the 2023 folder design for my high school</li>
+                    <li>3D-rendered proposal for the 2024 folder design for UPC (not winner)</li>
+                </ol>
+                <b>Blog</b>
+                <ol>
+                    <li>My blog where I reflect on all kinds of ideas: <a href="blog.junhao.one">blog.junhao.one</a></li>
+                </ol>
+            </span>
+        </div>
+
+        <div class="content-section">
+            <span class="section-title">Life until now</span>
+            <span class="section-text">
+                <b>Dec 24th, 2005</b>
+                <ul>
+                    <li>I was born in Spain, and immediately taken back to China.</li>
+                </ul>
+
+                <b>August, 2015</b>
+                <ul>
+                    <li>Came to Spain and studied since 5th grade, learning Calatan, Spanish and English.</li>
+                </ul>
+
+                <b>June, 2018</b>
+                <ul>
+                    <li>Discovery of my interest on programming: started learning Python and switched to C++ for videogames.</li>
+                </ul>
+
+                <b>June, 2021</b>
+                <ul>
+                    <li>My first summer job as a sushi waiter: they even invited me for the next summer.</li>
+                </ul>
+
+                <b>July, 2021</b>
+                <ul>
+                    <li>The restaurant needed a WEB menu book. I catched the offer (on Projects & Achievements).</li>
+                </ul>
+
+                <b>July 7th, 2022</b>
+                <ul>
+                    <li>Obtained my C1-level grade First Certificate with a grade of 181.</li>
+                </ul>
+
+                <b>February, 2024</b>
+                <ul>
+                    <li>Apple offered me a partial-time in a official product section in the Fnac store in Plaça Catalunya. I worked while studying and got an average grade of 9 (over 10) that quadrimester.</li>
+                </ul>
+
+                <b>June 27th, 2024</b>
+                <ul>
+                    <li>Computer-Science & Maths double-degree admission in the CFIS program in the UPC.</li>
+                </ul>
+            </span>
+        </div>
+
+        <div class="content-section">
+            <span class="section-title">Contact & CV</span>
+            <span class="section-text">
+                Please contact <span class="mail">liujunhao139(at)gmail(dot)com</span>, thank you!
+
+This version of CV does not contain contact information for privary considerations. Please email me for further details.
+            </span>
+        </div>
     </div>
+
+    <div id="footer">
+        <div id="footer-ctner" class="container">
+            Please slide until the end...
+        </div>
+    </div>
+
+
     <script src="./rainyText.js"></script>
     <script src="./script.js"></script>
+
+    <script>
+        function change_all_mails() {
+            let mails = document.getElementsByClassName("mail");
+            for (let i = 0; i < mails.length; ++i) {
+                let corrected = mails[i].innerHTML.toString().replace('(at)', '@');
+                corrected = corrected.replace('(dot)', '.');
+                mails[i].innerHTML = "<a href='mailto:" + corrected + "'>" + corrected + "</a>";
+            }
+        }
+        change_all_mails();
+    </script>
 </body>
 </html>
