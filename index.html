@@ -9,9 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
-<body onscroll="set_scroll_camera_blur();set_scroll_section_highlight();" onresize="">
+<body onscroll="set_scroll_camera_blur();" onresize="">
     <div id="background"></div>
-    <h1 style="color:white;display:block;position:absolute;left:0;top:0;z-index:1000;" id="rainyText-debug-msg">FPS: 129</h1>
+    <div id="debugging" style="display:inline-block;position:fixed;left:0;top:0;z-index:1000;">
+        <p style="color:white;" id="rainyText-debug-msg">FPS: 129</p>
+    </div>
     <div id="rainyText-pool"></div>
     <!--div id="play-with-rainyText">
         <p>Play with it</p>
@@ -19,13 +21,13 @@
     </div-->
     <div id="navbar">
         <div id="navbar-ctner" class="container">
-            <div id="navbar-logo">Junhao.one</div>
+            <div id="navbar-logo"><img src="./Junhao_logo.png"></div>
             <div id="navbar-bar">
                 <div id="navbar-bar-text">
-                    <div class="navbar-bar-option">Me</div>
-                    <div class="navbar-bar-option">Projects & achievements</div>
-                    <div class="navbar-bar-option">Life until now</div>
-                    <div class="navbar-bar-option">CV & contact</div>
+                    <div class="navbar-bar-option" onclick="set_scroll_to_section(0)">Me</div>
+                    <div class="navbar-bar-option" onclick="set_scroll_to_section(1)">Projects & achievements</div>
+                    <div class="navbar-bar-option" onclick="set_scroll_to_section(2)">Life until now</div>
+                    <div class="navbar-bar-option" onclick="set_scroll_to_section(3)">CV & contact</div>
                 </div>
                 <div id="navbar-bar-gradient"></div>
             </div>

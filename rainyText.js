@@ -11,8 +11,32 @@ let __RainyTextGlobal = {
 
     // for animation computing
     last_timestamp: null,
-    max_obj_speed: 250 // an point in space can reach at max this speed
+    max_obj_speed: 250, // an point in space can reach at max this speed
+    regenerate_drop: true, // only false when the rain is stopped
+    physics_scaling_factor: 1 // the speed-up of physics computation
 };
+
+// All time-related are measured in seconds
+// duration -1 means infinitely (and all the followings are omitted)
+let __RainyTextAnimationIndex = 0;
+let __RainyTextAnimationList = [
+    {
+        type: "raining",
+        duration: 1
+    },
+    {
+        type: "title",
+        duration: {
+            prep: 0.5,
+            pause: 0.5,
+            out: 0.5
+        }
+    },
+    {
+        type: "raining",
+        duration: -1
+    }
+];
 
 window.onload = function() {
     __RainyTextGlobal.pool_DOM_elem = document.getElementById("rainyText-pool");
@@ -234,7 +258,7 @@ function draw_char_dom(dot_char_3d, cameraprops, max_depth, tinydrop = false) {
     // apply the visual changes to the char
     let translate = projection;
     let scale = font_size_scale;
-    var blur_rad = 200000 * cameraprops.blur_radius(dot_char_3d.pos) / scale;
+    var blur_rad = 600000 * cameraprops.blur_radius(dot_char_3d.pos) / scale;
 
     let opacity_scale = 3.0;
     let tinydrop_opacity = Math.min(Math.abs(dot_char_3d.pos.y), opacity_scale);
@@ -283,7 +307,6 @@ function physics_create_tinydrops(global_props, bigdrop) {
 function physics(delta, global_props) {
     // if time invariance is too small
     if (Math.abs(delta) < 1e-6) {
-        console.log(",");
         return;
     }
 
@@ -321,18 +344,22 @@ function physics(delta, global_props) {
     // and when a tinydrop falls to y=0, it vanishes.
     for (let i = 0; i < bigdrops.length; ++i) {
         if (bigdrops[i].pos.y < 0) {
-            for (let j = 0; j < 3; ++j) {
+            for (let j = 0; j < 2; ++j) {
                 tinydrops.push(
                     physics_create_tinydrops(global_props, bigdrops[i])
                 );
             }
-            
-            // "reuse" this character
             bigdrops[i].pos.x = (Math.random() * 2 - 1) * global_props.camera.tan_angle * Math.abs(global_props.camera.pos.z - bigdrops[i].pos.z) * global_props.camera.multiply_factor.x;
             bigdrops[i].pos.y = Math.abs(global_props.camera.tan_angle * Math.abs(global_props.camera.pos.z - bigdrops[i].pos.z) * global_props.camera.multiply_factor.y) + bigdrops[i].size.y*2;
-            bigdrops[i].speed.y = -global_props.max_obj_speed;
-            //bigdrops[i].char = global_props.accepted_char_array[parseInt(Math.random() * global_props.accepted_char_array.length)];
-            bigdrops[i].color = new ColorRGB(parseInt(Math.random() * 256), parseInt(Math.random() * 256), parseInt(Math.random() * 256));
+
+            if (global_props.regenerate_drop) {
+                // "reuse" this character
+                bigdrops[i].speed.y = -global_props.max_obj_speed;
+                //bigdrops[i].char = global_props.accepted_char_array[parseInt(Math.random() * global_props.accepted_char_array.length)];
+                bigdrops[i].color = new ColorRGB(parseInt(Math.random() * 256), parseInt(Math.random() * 256), parseInt(Math.random() * 256));
+            } else {
+                bigdrops[i].dom.style.display = "none";
+            }
         }
     }
 
@@ -362,7 +389,7 @@ function physics_and_animate(timestamp) {
 
     // compute the physics
     // delta is in ms, now convert it to s
-    physics(delta/1000, __RainyTextGlobal);
+    physics(__RainyTextGlobal.physics_scaling_factor*delta/1000, __RainyTextGlobal);
 
     //__RainyTextGlobal.camera.focus_dist += (timestamp - __RainyTextGlobal.last_timestamp) * 0.01;
 
@@ -379,7 +406,11 @@ function physics_and_animate(timestamp) {
 
     __RainyTextGlobal.last_timestamp = timestamp;
     //requestAnimationFrame(physics_and_animate);
-    document.getElementById("rainyText-debug-msg").innerText = "FPS: " + (parseInt(1000/(performance.now() - timestamp))).toString() + "\n" + "Childcount: " + (__RainyTextGlobal.pool_DOM_elem.childElementCount).toString();
+    document.getElementById("rainyText-debug-msg").innerText = 
+        "Render FPS: " + (parseInt(1000/(performance.now() - timestamp))).toString() + "\n" +
+        "Childcount: " + (__RainyTextGlobal.pool_DOM_elem.childElementCount).toString() + "\n" +
+        "Bigdrops: " + (__RainyTextGlobal.bigdrops_pool.length).toString() + "\n" + 
+        "Tinydrops: " + (__RainyTextGlobal.tinydrops_pool.length).toString();
 }
 
 // main function
@@ -392,14 +423,14 @@ function rainy_text_main() {
 
     let furthest_gen_relative_distance = 200;
     let char_size = new vector2(10, 20);
-    __RainyTextGlobal.bigdrops_pool_size = 50;
+    __RainyTextGlobal.bigdrops_pool_size = 40;
 
     __RainyTextGlobal.bigdrops_pool = generate_random_chars_ini(__RainyTextGlobal.camera, char_size, furthest_gen_relative_distance, __RainyTextGlobal.bigdrops_pool_size, __RainyTextGlobal.accepted_char_array);
     __RainyTextGlobal.bigdrops_pool.sort((a, b) => b.pos.z - a.pos.z);
 
     // begin simulation
     //requestAnimationFrame(physics_and_animate);
-    setInterval(physics_and_animate, 15, 0);
+    setInterval(physics_and_animate, 16, 0);
 }
 
 
