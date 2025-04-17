@@ -41,6 +41,20 @@ div#rainyText-pool span.raindrop {
     margin-right: auto;
 }
 
+@media (min-width: 1px) {
+    div#navbar div#navbar-bar {
+        display: none;
+    }
+
+    div#navbar div#navbar-icon img {
+        display: inline-block;
+    }
+
+    div#navbar div#navbar-mobile-ctner {
+        display: block;
+    }
+}
+
 @media (min-width: 576px) {
     .container {
         max-width: 540px;
@@ -56,6 +70,18 @@ div#rainyText-pool span.raindrop {
 @media (min-width: 992px) {
     .container {
         max-width: 960px;
+    }
+
+    div#navbar div#navbar-bar {
+        display: inline-block;
+    }
+
+    div#navbar div#navbar-icon img {
+        display: none;
+    }
+
+    div#navbar div#navbar-mobile-ctner {
+        display: none;
     }
 }
 
@@ -80,6 +106,8 @@ div#navbar {
     padding-top: 40px;
     z-index: 100;
     user-select: none;
+    background: #17173700;
+    transition-duration: 0.3s;
 }
 
 div#navbar div#navbar-ctner {
@@ -93,11 +121,12 @@ div#navbar div#navbar-logo {
 }
 
 div#navbar div#navbar-logo img {
-    max-height: 52px;
+    height: 52px;
+    width: auto;
 }
 
 div#navbar div#navbar-bar {
-    display: inline-block;
+    
 }
 
 div#navbar div#navbar-bar div#navbar-bar-text {
@@ -118,10 +147,41 @@ div#navbar div#navbar-bar div#navbar-bar-gradient {
     width: 100%;
     height: 2px;
     background-image: linear-gradient(to right, #fff0 0%, #ffff 50%, #fff0 100%);
+    transition-duration: 0.3s;
+    opacity: 1;
+}
+
+div#navbar div#navbar-icon img {
+    height: 52px;
+    width: auto;
+    user-select: none;
+}
+
+div#navbar div#navbar-mobile-ctner {
+    overflow: hidden;
+    height: 0px;
+    transition-duration: 0.3s;
+}
+
+div#navbar div#navbar-mobile-ctner div#navbar-mobile-bar {
+    padding: 20px 0;
+}
+
+div#navbar div#navbar-mobile-ctner div#navbar-mobile-bar-text {
+    display: block;
+}
+
+div#navbar div#navbar-mobile-ctner div#navbar-mobile-bar-text div.navbar-bar-option-m {
+    padding: 20px 0;
+    font-family: var(--global-txt-font);
+    font-size: var(--global-txt-size);
+    color: #7875B0;
+    display: block;
+    transition-duration: 0.3s;
 }
 
 div#content {
-    margin-top: 100%;
+    margin-top: 100vh;
     font-family: var(--global-txt-font);
 }
 
@@ -142,6 +202,20 @@ div#content div.content-section span.section-text {
     font-weight: 400;
     color: #fff;
     display: block;
+    line-height: 50px;
+    font-size: var(--global-txt-size);
+}
+
+div#footer {
+    background: #0006;
+}
+
+div#footer div#footer-ctner {
+    min-height: 50vh;
+    padding-top: 50px;
+    font-family: var(--global-txt-font);
+    font-weight: 400;
+    color: #fff;
     line-height: 50px;
     font-size: var(--global-txt-size);
 }

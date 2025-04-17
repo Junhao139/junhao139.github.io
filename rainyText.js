@@ -13,7 +13,10 @@ let __RainyTextGlobal = {
     last_timestamp: null,
     max_obj_speed: 250, // an point in space can reach at max this speed
     regenerate_drop: true, // only false when the rain is stopped
-    physics_scaling_factor: 1 // the speed-up of physics computation
+    physics_scaling_factor: 1, // the speed-up of physics computation
+
+    // for debugging
+    debug_text: false
 };
 
 // All time-related are measured in seconds
@@ -406,11 +409,13 @@ function physics_and_animate(timestamp) {
 
     __RainyTextGlobal.last_timestamp = timestamp;
     //requestAnimationFrame(physics_and_animate);
-    document.getElementById("rainyText-debug-msg").innerText = 
-        "Render FPS: " + (parseInt(1000/(performance.now() - timestamp))).toString() + "\n" +
-        "Childcount: " + (__RainyTextGlobal.pool_DOM_elem.childElementCount).toString() + "\n" +
-        "Bigdrops: " + (__RainyTextGlobal.bigdrops_pool.length).toString() + "\n" + 
-        "Tinydrops: " + (__RainyTextGlobal.tinydrops_pool.length).toString();
+    if (__RainyTextGlobal.debug_text) {
+        document.getElementById("rainyText-debug-msg").innerText = 
+            "Render FPS: " + (parseInt(1000/(performance.now() - timestamp))).toString() + "\n" +
+            "Childcount: " + (__RainyTextGlobal.pool_DOM_elem.childElementCount).toString() + "\n" +
+            "Bigdrops: " + (__RainyTextGlobal.bigdrops_pool.length).toString() + "\n" + 
+            "Tinydrops: " + (__RainyTextGlobal.tinydrops_pool.length).toString();
+    }
 }
 
 // main function
@@ -418,6 +423,12 @@ function rainy_text_main() {
     const viewport_width = __RainyTextGlobal.pool_DOM_elem.offsetWidth;
     const viewport_height = __RainyTextGlobal.pool_DOM_elem.offsetHeight;
     console.log(viewport_width + " " + viewport_height);
+
+    if (__RainyTextGlobal.debug_text) {
+        document.getElementById("debugging").style.display = "inline-block";
+    } else {
+        document.getElementById("debugging").style.display = "none";
+    }
 
     __RainyTextGlobal.camera = new CameraProps(Math.PI / 3, new vector3(0, 40, 0), viewport_width, viewport_height, 0.05, 1.5, 100);
 
