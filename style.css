@@ -5,6 +5,7 @@ body {
 :root {
     --global-txt-font: 'Inter', sans-serif;
     --global-txt-size: 25px;
+    --global-ttl-size: 80px;
 }
 
 /* Rainy Text */
@@ -42,6 +43,14 @@ div#rainyText-pool span.raindrop {
 }
 
 @media (min-width: 1px) {
+    :root {
+        --global-ttl-size: 40px;
+    }
+
+    .container {
+        max-width: 90vw;
+    }
+
     div#navbar div#navbar-bar {
         display: none;
     }
@@ -68,6 +77,10 @@ div#rainyText-pool span.raindrop {
 }
 
 @media (min-width: 992px) {
+    :root {
+        --global-ttl-size: 80px;
+    }
+
     .container {
         max-width: 960px;
     }
@@ -195,7 +208,7 @@ div#content div.content-section span.section-title {
     font-weight: 700;
     color: #fff;
     display: block;
-    font-size: 100px;
+    font-size: var(--global-ttl-size);
 }
 
 div#content div.content-section span.section-text {
