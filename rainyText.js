@@ -19,28 +19,6 @@ let __RainyTextGlobal = {
     debug_text: false
 };
 
-// All time-related are measured in seconds
-// duration -1 means infinitely (and all the followings are omitted)
-let __RainyTextAnimationIndex = 0;
-let __RainyTextAnimationList = [
-    {
-        type: "raining",
-        duration: 1
-    },
-    {
-        type: "title",
-        duration: {
-            prep: 0.5,
-            pause: 0.5,
-            out: 0.5
-        }
-    },
-    {
-        type: "raining",
-        duration: -1
-    }
-];
-
 window.onload = function() {
     __RainyTextGlobal.pool_DOM_elem = document.getElementById("rainyText-pool");
     rainy_text_main();
@@ -201,8 +179,8 @@ function generate_random_chars_ini(cameraprops, char_size, max_z, number, char_a
         __RainyTextGlobal.pool_DOM_elem.appendChild(new_char_dom_elem);
 
         var rel_z = minimum_z + (max_z - minimum_z) * Math.random();
-        var rel_x = (Math.random() * 2 - 1) * cameraprops.tan_angle * (cameraprops.pos.z + max_z) * cameraprops.multiply_factor.x;
-        var rel_y = Math.abs(cameraprops.tan_angle * (cameraprops.pos.z + max_z) * cameraprops.multiply_factor.y);
+        var rel_x = (Math.random() * 2 - 1) * cameraprops.tan_angle * Math.abs(cameraprops.pos.z - max_z) * cameraprops.multiply_factor.x;
+        var rel_y = Math.abs(cameraprops.tan_angle * Math.abs(cameraprops.pos.z - max_z) * (1 + 0.5*Math.random()) * cameraprops.multiply_factor.y);
         ret_array.push(new DotChar3D(
             new vector3(cameraprops.pos.x + rel_x, cameraprops.pos.y + rel_y, cameraprops.pos.z + rel_z),
             new vector3(-30, -__RainyTextGlobal.max_obj_speed, 0),
@@ -444,5 +422,7 @@ function rainy_text_main() {
     setInterval(physics_and_animate, 16, 0);
 }
 
-
+function rainy_text_beginning_animation() {
+    
+}
 
