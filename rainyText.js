@@ -169,7 +169,7 @@ let __RainyTextGlobal = {
     max_obj_speed: 250, // an point in space can reach at max this speed
     regenerate_drop: true, // only false when the rain is stopped
     physics_scaling_factor: 1, // the speed-up of physics computation
-    computation_ms: 10, // every how many ms should the animation be computed
+    computation_ms: 20, // every how many ms should the animation be computed
 
     // for text animation
     text_anim: {
