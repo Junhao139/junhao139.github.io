@@ -11,8 +11,10 @@
 </head>
 <body onscroll="set_scroll_camera_blur();" onresize="">
     <div id="background"></div>
-    <div id="debugging" style="display:inline-block;position:fixed;left:0;top:0;z-index:1000;">
+    <div id="debugging" style="display:none;position:fixed;left:0;top:0;z-index:1000;">
         <p style="color:white;" id="rainyText-debug-msg">FPS: 129</p>
+        <input id="showtextanim_input" placeholder="welcome" value="welcome">
+        <button onclick="run_text_pause_animation(document.getElementById('showtextanim_input').value)">Show text animation</button>
     </div>
     <div id="rainyText-pool"></div>
     <!--div id="play-with-rainyText">
@@ -72,7 +74,7 @@
                 </ol>
                 <b>Maths</b>
                 <ol>
-                    <li>Demostration: minimum number of computations needed for a specific term in the Taylor polynomial (in Catalan)</li>
+                    <li>Proof: minimum number of computations needed for a specific term in the Taylor polynomial (in Catalan)</li>
                 </ol>
                 <b>Music</b>
                 <ol>
@@ -120,7 +122,7 @@
 
                 <b>July, 2021</b>
                 <ul>
-                    <li>The restaurant needed a WEB menu book. I catched the offer (on Projects & Achievements).</li>
+                    <li>The restaurant needed a WEB menu book. I caught the offer (on Projects & Achievements).</li>
                 </ul>
 
                 <b>July 7th, 2022</b>
@@ -155,6 +157,8 @@ This version of CV does not contain contact information for privary consideratio
     <div id="footer">
         <div id="footer-ctner" class="container">
             <span>Page handcrafted by <b>Junhao Liu</b>. Junhao Liu has all the copyrights but if you want to use this too, just email him. He is kind. @2025</span>
+            <br>
+            <button onclick="showDebugOptions()">Show debug options</button>
         </div>
     </div>
 

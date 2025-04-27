@@ -1,6 +1,7 @@
 let __ScriptGlobal = {
     last_visited_section: 0,
-    menu_is_opened: false
+    menu_is_opened: false,
+    debugger_is_openend: false
 };
 
 function set_scroll_camera_blur() {
@@ -8,7 +9,7 @@ function set_scroll_camera_blur() {
     let size_y = window.innerHeight;
     if (vert < size_y) {
         let proportion = Math.min(1.0, vert / size_y);
-        __RainyTextGlobal.camera.manual_focal_radius_param = proportion * 0.008;
+        __RainyTextGlobal.camera.manual_focal_radius_param = proportion * 0.006;
     }
 }
 
@@ -75,7 +76,7 @@ function set_scroll_to_section(idx) {
         behavior: "smooth"
     });
 
-    console.log(window.scrollY + all_sections[idx].getBoundingClientRect().top - 120);
+    //console.log(window.scrollY + all_sections[idx].getBoundingClientRect().top - 120);
 }
 
 function trigger_menu() {
@@ -92,4 +93,15 @@ function trigger_menu() {
     
     __ScriptGlobal.menu_is_opened = !__ScriptGlobal.menu_is_opened;
 
+}
+
+function showDebugOptions() {
+    var debugging = document.getElementById("debugging");
+    if (__ScriptGlobal.debugger_is_openend) {
+        debugging.style.display = "none";
+    } else {
+        debugging.style.display = "inline-block";
+    }
+    __ScriptGlobal.debugger_is_openend = !__ScriptGlobal.debugger_is_openend;
+    __RainyTextGlobal.debug_text = !__RainyTextGlobal.debug_text;
 }
